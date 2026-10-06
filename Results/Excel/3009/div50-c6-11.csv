@@ -1,0 +1,581 @@
+﻿Time,Mode,FSO-BER1,FSO-BER2,FSO-ABER,RF-BER,Rx1,Rx2,OBER,Throughput,Delivery
+2026-10-02 12:47:18,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:47:19,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:20,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:21,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:22,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:23,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:24,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:25,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:26,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:27,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:28,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:29,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:30,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:47:31,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:32,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:33,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:47:34,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:35,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:36,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:37,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:38,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:39,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:40,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:47:41,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:42,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:43,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:44,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:45,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:46,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:47,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:48,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:49,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:50,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:51,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:52,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:47:53,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:54,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:47:55,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:56,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:57,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:58,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:47:59,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:00,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:01,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:48:02,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:03,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:48:04,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:48:05,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:06,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:07,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:08,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:48:09,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:10,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:11,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:12,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:13,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:14,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:15,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:16,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:17,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:48:18,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:19,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:20,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:21,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:22,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:23,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:24,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:25,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:26,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:27,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:28,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:48:29,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:48:30,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:31,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:32,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:33,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:34,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:35,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:36,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:37,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:38,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:39,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:40,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:41,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:42,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:43,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:44,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:45,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:48:46,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:47,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:48,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:49,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:50,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:48:51,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:52,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:53,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:54,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:55,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:48:56,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:57,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:58,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:48:59,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:00,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:01,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:02,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:03,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:04,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:05,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:06,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:49:07,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:08,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:09,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:49:10,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:11,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:12,Diversity / RX2 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:49:13,Diversity / RX1 / interval BER,0.000E+00,8.523E-03,5.579E-03,N/A,50.000,35.537,5.677E-03,50.000000,0.000000
+2026-10-02 12:49:14,Diversity / RX1 / interval BER,0.000E+00,6.254E-02,1.885E-02,N/A,50.000,11.117,0.000E+00,50.000001,0.000000
+2026-10-02 12:49:15,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:49:16,Diversity / RX1 / interval BER,3.396E-03,No checked bits,3.396E-03,N/A,30.103,0.000,5.020E-03,30.103044,0.000000
+2026-10-02 12:49:17,Diversity / RX1 / interval BER,5.581E-02,No checked bits,5.581E-02,N/A,22.166,0.000,6.128E-02,22.165700,0.000000
+2026-10-02 12:49:18,Diversity / RX1 / interval BER,1.156E-01,No checked bits,1.156E-01,N/A,Unavailable,Unavailable,Unavailable,Unavailable,Unavailable
+2026-10-02 12:49:19,Diversity / RF pending / interval BER,No checked bits,No checked bits,No checked bits,N/A,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:20,Diversity / RF pending / interval BER,No checked bits,No checked bits,No checked bits,N/A,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:21,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,N/A,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:22,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:23,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:24,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:25,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:26,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:27,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:28,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:29,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:30,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:31,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:32,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:33,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:34,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:35,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:36,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:37,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:38,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:39,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:40,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:41,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:42,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:43,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:44,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:45,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:46,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:47,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:48,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:49,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:50,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:51,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:52,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:53,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:54,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:55,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:56,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:57,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:58,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:49:59,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:00,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:01,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:02,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:03,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:04,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:05,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:06,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:07,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:08,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:09,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:10,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:11,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:12,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:13,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:14,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:15,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:16,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:17,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:18,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:19,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:20,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:21,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:22,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:23,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:24,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:25,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:26,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:27,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:28,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:29,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:30,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:31,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:32,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:33,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:34,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:35,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:36,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:37,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:38,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:39,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:40,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:41,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:42,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:43,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:44,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:45,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:46,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:47,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:48,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:49,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:50,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:51,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:52,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:53,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:54,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:55,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:56,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:57,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:58,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:50:59,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:00,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:01,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:02,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:03,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:04,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:05,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:06,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:07,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:08,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:09,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:10,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:11,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:12,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:13,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:14,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:15,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:16,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:17,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:18,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:19,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:20,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:21,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:22,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:23,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:24,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:25,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:26,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:27,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:28,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:29,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:30,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:31,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:32,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:33,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:34,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:35,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:36,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:37,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:38,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:39,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:40,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:41,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:42,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:43,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:44,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:45,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:46,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:47,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:48,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:49,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:50,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:51,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:52,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:53,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:54,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:55,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:56,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:57,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:58,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:51:59,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:00,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:01,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:02,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:03,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:04,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:05,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:06,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:07,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:08,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:09,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:10,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:11,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:12,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:13,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:14,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:15,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:16,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:17,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:18,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:19,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:20,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:21,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:22,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:23,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:24,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:25,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:26,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:27,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:28,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:29,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:30,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:31,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:32,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:33,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:34,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:35,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:36,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:37,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:38,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:39,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:40,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:41,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:42,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:43,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:44,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:45,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:46,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:47,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:48,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:49,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:50,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:51,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:52,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:53,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:54,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:55,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:56,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:57,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:58,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:52:59,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:53:00,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:53:01,Diversity / RF 1Mbps / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-02 12:53:02,Diversity / RX1 / interval BER,1.248E-01,No checked bits,1.248E-01,N/A,35.759,0.000,1.241E-01,35.758882,0.000000
+2026-10-02 12:53:03,Diversity / RX1 / interval BER,1.246E-01,No checked bits,1.246E-01,N/A,50.000,0.000,1.228E-01,50.000000,0.000000
+2026-10-02 12:53:04,Diversity / RX1 / interval BER,1.209E-01,No checked bits,1.209E-01,N/A,50.000,0.000,1.186E-01,50.000001,0.000000
+2026-10-02 12:53:05,Diversity / RX1 / interval BER,1.151E-01,No checked bits,1.151E-01,N/A,50.000,0.000,1.078E-01,50.000000,0.000000
+2026-10-02 12:53:06,Diversity / RX1 / interval BER,9.602E-02,No checked bits,9.602E-02,N/A,50.000,0.000,8.453E-02,50.000000,0.000000
+2026-10-02 12:53:07,Diversity / RX1 / interval BER,3.676E-02,No checked bits,3.676E-02,N/A,50.000,0.000,1.616E-02,50.000000,0.000000
+2026-10-02 12:53:08,Diversity / RX1 / interval BER,8.197E-04,No checked bits,8.197E-04,N/A,50.000,0.000,1.580E-04,50.000000,0.000000
+2026-10-02 12:53:09,Diversity / RX1 / interval BER,3.247E-05,No checked bits,3.247E-05,N/A,50.000,0.000,1.777E-05,50.000000,0.000000
+2026-10-02 12:53:10,Diversity / RX1 / interval BER,7.018E-06,No checked bits,7.018E-06,N/A,50.000,0.000,5.348E-06,50.000000,0.000000
+2026-10-02 12:53:11,Diversity / RX1 / interval BER,1.254E-06,No checked bits,1.254E-06,N/A,50.000,0.000,1.054E-06,50.000000,0.000000
+2026-10-02 12:53:12,Diversity / RX1 / interval BER,6.169E-07,No checked bits,6.169E-07,N/A,50.000,0.000,7.039E-07,50.000000,0.000000
+2026-10-02 12:53:13,Diversity / RX1 / interval BER,2.026E-08,No checked bits,2.026E-08,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:14,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:53:15,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:16,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:17,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:18,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:19,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:20,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:21,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:22,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:23,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:24,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:53:25,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:53:26,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:53:27,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:28,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:29,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:30,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:53:31,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:32,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:53:33,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:34,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:35,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:36,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:37,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:38,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:39,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:53:40,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:53:41,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:42,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:43,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:44,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:45,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:46,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:47,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:48,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:49,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:53:50,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:53:51,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:53:52,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:53:53,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:54,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:55,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:53:56,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:57,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:58,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:53:59,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:00,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:54:01,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:02,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:03,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:04,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:05,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:06,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:07,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:08,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:09,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:10,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:11,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:12,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:13,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:14,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:15,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:16,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:17,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:54:18,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:54:19,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:54:20,Diversity / RX1 / interval BER,0.000E+00,1.480E-01,2.318E-02,N/A,50.000,22.520,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:21,Diversity / RX1 / interval BER,0.000E+00,1.555E-01,6.926E-02,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:54:22,Diversity / RX1 / interval BER,0.000E+00,1.959E-01,7.608E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:23,Diversity / RX1 / interval BER,0.000E+00,1.669E-01,7.138E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:24,Diversity / RX1 / interval BER,0.000E+00,1.682E-01,7.171E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:25,Diversity / RX1 / interval BER,0.000E+00,1.737E-01,7.270E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:26,Diversity / RX1 / interval BER,0.000E+00,1.603E-01,7.023E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:27,Diversity / RX1 / interval BER,0.000E+00,1.453E-01,6.720E-02,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:54:28,Diversity / RX1 / interval BER,0.000E+00,1.414E-01,6.635E-02,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:54:29,Diversity / RX1 / interval BER,0.000E+00,1.694E-01,7.192E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:30,Diversity / RX1 / interval BER,0.000E+00,1.510E-01,6.838E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:31,Diversity / RX1 / interval BER,0.000E+00,1.512E-01,6.843E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:32,Diversity / RX1 / interval BER,0.000E+00,1.402E-01,6.609E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:33,Diversity / RX1 / interval BER,0.000E+00,1.323E-01,5.610E-02,N/A,50.000,27.451,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:34,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:35,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:36,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:37,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:38,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:39,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:54:40,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:54:41,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:42,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:43,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:54:44,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:45,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:46,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:47,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:48,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:49,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:50,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:51,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:52,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:54:53,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:54:54,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:55,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:54:56,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:54:57,Diversity / RX1 / interval BER,0.000E+00,No checked bits,0.000E+00,N/A,50.000,0.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:54:58,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:54:59,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:00,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:01,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:02,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:03,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,0.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:04,Diversity / RX1 / interval BER,0.000E+00,1.062E-01,1.147E-02,N/A,50.000,16.746,0.000E+00,50.000001,0.000000
+2026-10-02 12:55:05,Diversity / RX1 / interval BER,0.000E+00,1.504E-01,6.822E-02,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:55:06,Diversity / RX1 / interval BER,0.000E+00,1.507E-01,6.831E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:07,Diversity / RX1 / interval BER,0.000E+00,1.720E-01,7.225E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:08,Diversity / RX1 / interval BER,0.000E+00,1.512E-01,6.831E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:09,Diversity / RX1 / interval BER,0.000E+00,1.435E-01,6.667E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:10,Diversity / RX1 / interval BER,0.000E+00,2.087E-01,7.808E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:11,Diversity / RX1 / interval BER,0.000E+00,1.634E-01,7.076E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:12,Diversity / RX1 / interval BER,0.000E+00,1.453E-01,6.697E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:13,Diversity / RX1 / interval BER,0.000E+00,5.666E-02,2.793E-02,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:14,Diversity / RX1 / interval BER,0.000E+00,7.494E-04,2.984E-04,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:15,Diversity / RX1 / interval BER,0.000E+00,1.231E-04,5.430E-05,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:16,Diversity / RX1 / interval BER,0.000E+00,2.745E-05,1.208E-05,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:17,Diversity / RX1 / interval BER,0.000E+00,5.429E-06,2.661E-06,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:18,Diversity / RX1 / interval BER,0.000E+00,2.229E-06,9.986E-07,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:19,Diversity / RX1 / interval BER,0.000E+00,4.703E-07,2.159E-07,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:20,Diversity / RX1 / interval BER,0.000E+00,7.163E-08,3.255E-08,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:55:21,Diversity / RX1 / interval BER,0.000E+00,7.656E-08,3.364E-08,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:55:22,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:23,Diversity / RX1 / interval BER,0.000E+00,8.177E-08,4.038E-08,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:24,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:25,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:26,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:27,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:55:28,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:55:29,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:30,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:55:31,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:32,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:33,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:34,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:35,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:36,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:55:37,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:55:38,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:55:39,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:55:40,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:41,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:42,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:55:43,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:44,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:45,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:46,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:47,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:48,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:49,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:50,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:51,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:52,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:53,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:54,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:55,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:56,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:57,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:58,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:55:59,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:00,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:01,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:02,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:03,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:56:04,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:05,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:06,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:07,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:08,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:09,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:10,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:11,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:12,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:13,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:14,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:15,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:56:16,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:17,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:18,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:19,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:20,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:21,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:22,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:23,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:24,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:25,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:26,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:56:27,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:28,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:56:29,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:30,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:31,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:32,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:33,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:34,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:56:35,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:56:36,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:37,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:38,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:39,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:40,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:41,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:42,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:43,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:44,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:45,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:46,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:48,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:49,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:49,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:50,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:56:51,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:52,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:53,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:54,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000000,0.000000
+2026-10-02 12:56:55,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000
+2026-10-02 12:56:56,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,50.000001,0.000000
+2026-10-02 12:56:57,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,50.000,50.000,0.000E+00,49.999999,0.000000

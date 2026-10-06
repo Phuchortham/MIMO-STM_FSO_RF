@@ -1,0 +1,472 @@
+﻿Time,Mode,FSO-BER1,FSO-BER2,FSO-ABER,RF-BER,Rx1,Rx2,OBER,Throughput,Delivery
+2026-10-01 15:18:37,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.286977
+2026-10-01 15:18:38,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.791666
+2026-10-01 15:18:40,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.401572
+2026-10-01 15:18:41,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000002,78.544254
+2026-10-01 15:18:42,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.580251
+2026-10-01 15:18:43,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.324747
+2026-10-01 15:18:44,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.949334
+2026-10-01 15:18:45,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,77.881717
+2026-10-01 15:18:46,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.695472
+2026-10-01 15:18:48,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.202662
+2026-10-01 15:18:49,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.619088
+2026-10-01 15:18:53,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.604454
+2026-10-01 15:18:56,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.641169
+2026-10-01 15:18:57,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.821932
+2026-10-01 15:18:58,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.423862
+2026-10-01 15:19:00,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.691086
+2026-10-01 15:19:01,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.111118
+2026-10-01 15:19:03,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,79.023732
+2026-10-01 15:19:04,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.920247
+2026-10-01 15:19:06,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.833820
+2026-10-01 15:19:07,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,77.662416
+2026-10-01 15:19:08,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.932929
+2026-10-01 15:19:09,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.542778
+2026-10-01 15:19:10,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.597329
+2026-10-01 15:19:12,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.082422
+2026-10-01 15:19:13,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.070428
+2026-10-01 15:19:14,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.614711
+2026-10-01 15:19:15,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.233693
+2026-10-01 15:19:16,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,79.094013
+2026-10-01 15:19:18,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,77.668176
+2026-10-01 15:19:19,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.659553
+2026-10-01 15:19:20,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.360202
+2026-10-01 15:19:21,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.794844
+2026-10-01 15:19:23,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.144866
+2026-10-01 15:19:24,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.623412
+2026-10-01 15:19:25,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.581845
+2026-10-01 15:19:26,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.525883
+2026-10-01 15:19:28,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.589083
+2026-10-01 15:19:29,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.062212
+2026-10-01 15:19:30,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,79.095220
+2026-10-01 15:19:31,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,77.626950
+2026-10-01 15:19:32,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,79.201781
+2026-10-01 15:19:33,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.052050
+2026-10-01 15:19:35,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.715944
+2026-10-01 15:19:36,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.018257
+2026-10-01 15:19:37,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.507668
+2026-10-01 15:19:38,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.284079
+2026-10-01 15:19:40,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.411091
+2026-10-01 15:19:41,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.434574
+2026-10-01 15:19:42,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.458751
+2026-10-01 15:19:44,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.511148
+2026-10-01 15:19:45,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.527669
+2026-10-01 15:19:46,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.749615
+2026-10-01 15:19:48,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.454364
+2026-10-01 15:19:49,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.796099
+2026-10-01 15:19:50,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.266434
+2026-10-01 15:19:51,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,79.128165
+2026-10-01 15:19:53,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.196918
+2026-10-01 15:19:54,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,79.573266
+2026-10-01 15:19:55,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.098742
+2026-10-01 15:19:57,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,79.380379
+2026-10-01 15:19:58,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.178645
+2026-10-01 15:19:59,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,79.374334
+2026-10-01 15:20:01,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.079532
+2026-10-01 15:20:02,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,79.314707
+2026-10-01 15:20:03,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.004193
+2026-10-01 15:20:05,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,79.068982
+2026-10-01 15:20:06,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,77.746704
+2026-10-01 15:20:07,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,79.204066
+2026-10-01 15:20:09,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,77.859457
+2026-10-01 15:20:10,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,79.004618
+2026-10-01 15:20:11,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.960516
+2026-10-01 15:20:13,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,79.027139
+2026-10-01 15:20:14,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,77.642496
+2026-10-01 15:20:16,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.816106
+2026-10-01 15:20:17,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.085684
+2026-10-01 15:20:18,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.937005
+2026-10-01 15:20:20,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,77.876619
+2026-10-01 15:20:21,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.820050
+2026-10-01 15:20:23,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.049560
+2026-10-01 15:20:24,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.586142
+2026-10-01 15:20:25,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.213402
+2026-10-01 15:20:27,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.303914
+2026-10-01 15:20:28,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.743596
+2026-10-01 15:20:29,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.366646
+2026-10-01 15:20:31,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.002338
+2026-10-01 15:20:32,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.757028
+2026-10-01 15:20:33,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,77.885718
+2026-10-01 15:20:35,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.051183
+2026-10-01 15:20:36,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.135317
+2026-10-01 15:20:37,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.315899
+2026-10-01 15:20:39,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.070102
+2026-10-01 15:20:40,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.548151
+2026-10-01 15:20:41,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.970935
+2026-10-01 15:20:43,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.751144
+2026-10-01 15:20:44,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.814728
+2026-10-01 15:20:45,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.865999
+2026-10-01 15:20:46,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.718456
+2026-10-01 15:20:48,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.796772
+2026-10-01 15:20:49,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,77.546549
+2026-10-01 15:20:50,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,79.079264
+2026-10-01 15:20:52,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.199546
+2026-10-01 15:20:53,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.462756
+2026-10-01 15:20:54,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,77.583903
+2026-10-01 15:20:55,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.576403
+2026-10-01 15:20:56,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,77.898129
+2026-10-01 15:20:58,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.161203
+2026-10-01 15:20:59,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.241524
+2026-10-01 15:21:00,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.356540
+2026-10-01 15:21:02,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.303300
+2026-10-01 15:21:03,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.303086
+2026-10-01 15:21:04,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.250432
+2026-10-01 15:21:06,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.370446
+2026-10-01 15:21:07,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.346903
+2026-10-01 15:21:08,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,77.984784
+2026-10-01 15:21:09,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.390174
+2026-10-01 15:21:11,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,7.893E-08,49.999999,77.692801
+2026-10-01 15:21:12,SMP / paired RX / per-link line rate / both lanes counting / interval BER,6.047E-08,2.636E-06,1.461E-07,N/A,25.000,25.000,0.000E+00,50.000000,78.633503
+2026-10-01 15:21:13,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,6.908E-03,3.166E-03,N/A,25.000,18.688,6.368E-03,43.688184,47.864033
+2026-10-01 15:21:15,SMP / paired RX / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,1.208E-02,5.038E-03,N/A,25.000,2.192,2.544E-02,27.192264,1.478621
+2026-10-01 15:21:17,SMP / RF pending / per-link line rate / INCOMPLETE: missing lane / interval BER,3.281E-03,No checked bits,3.281E-03,N/A,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:19,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,3.171E-04,No checked bits,3.171E-04,N/A,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:21,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:22,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:24,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:26,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:27,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:29,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:30,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:32,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:33,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:35,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:37,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:38,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:40,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:41,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:43,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:44,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:46,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:48,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:49,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:51,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:52,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:54,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:55,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:57,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:21:58,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:00,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:02,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:03,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:05,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:06,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:08,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:10,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:11,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:13,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:14,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:16,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:17,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:19,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:21,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:22,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:24,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:25,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:27,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:28,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:30,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:32,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:33,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:35,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:36,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:38,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:39,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:41,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:42,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:44,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:46,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:47,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:49,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:50,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:52,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:54,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:55,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:57,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:22:59,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:00,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:02,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:03,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:05,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:06,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:08,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:10,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:11,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:13,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:14,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:16,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:18,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:19,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:21,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:22,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:24,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:25,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:27,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:29,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:30,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:32,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:33,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:35,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:36,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:38,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:40,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:41,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:43,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:44,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:46,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:47,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:49,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:51,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:52,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:54,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:55,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:57,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:23:59,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:00,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:02,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:04,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:05,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:07,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:09,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:10,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:12,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:13,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:15,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:16,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:18,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:20,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:21,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:23,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:25,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:26,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:28,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:29,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:31,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:33,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:34,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:36,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:38,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:39,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:41,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:43,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:44,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:46,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:47,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:49,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:50,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:52,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:54,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:55,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:57,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:24:59,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:00,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:02,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:04,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:05,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:07,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:08,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:10,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:12,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:13,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:15,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:16,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:18,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:19,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:21,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:22,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:24,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:26,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:27,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:29,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:31,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:32,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:34,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:35,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:37,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:39,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:40,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:42,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:44,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:45,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:47,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:49,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:50,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:52,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:53,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:55,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:57,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:25:58,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:00,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:02,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:03,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:05,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:07,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:08,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:10,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:12,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:13,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,1.298E-01,No checked bits,1.298E-01,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:15,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,1.131E-01,No checked bits,1.131E-01,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:16,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,1.206E-01,No checked bits,1.206E-01,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:18,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,1.075E-01,No checked bits,1.075E-01,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:20,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,2.745E-02,No checked bits,2.745E-02,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:21,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,1.815E-03,No checked bits,1.815E-03,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:23,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,8.883E-06,No checked bits,8.883E-06,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:25,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,2.181E-06,No checked bits,2.181E-06,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:26,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,5.678E-08,No checked bits,5.678E-08,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:28,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:30,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:31,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:33,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:34,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:36,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:38,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:39,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:41,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:42,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:44,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:46,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:47,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,2.626E-08,No checked bits,2.626E-08,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:49,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,1.634E-06,No checked bits,1.634E-06,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:50,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,3.762E-07,No checked bits,3.762E-07,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:52,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,2.001E-05,No checked bits,2.001E-05,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:54,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,6.124E-02,No checked bits,6.124E-02,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:55,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,No checked bits,No checked bits,No checked bits,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:57,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,1.268E-01,No checked bits,1.268E-01,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:26:58,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,1.259E-02,No checked bits,1.259E-02,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:00,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:02,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:03,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:05,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:06,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:08,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:10,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:11,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:13,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:15,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:16,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:18,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,0.000E+00,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:19,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:21,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:23,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,0.000E+00,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:24,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,0.000E+00,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:26,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:27,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:29,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:31,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,0.000E+00,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:32,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,No checked bits,0.000E+00,0.000E+0,Unavailable,Unavailable,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:34,SMP / RF 1Mbps / per-link line rate / INCOMPLETE: missing lane / interval BER,0.000E+00,0.000E+00,0.000E+00,0.000E+0,25.000,0.173,Unavailable (RF),Unavailable (RF),Unavailable (RF)
+2026-10-01 15:27:36,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,8.601E-02,2.344E-02,N/A,25.000,19.780,3.610E-02,44.779974,2.321817
+2026-10-01 15:27:39,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,2.108E-02,1.344E-02,N/A,25.000,25.000,5.904E-03,50.000000,44.907353
+2026-10-01 15:27:40,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.063E-03,7.090E-04,N/A,25.000,25.000,4.379E-04,50.000000,72.013341
+2026-10-01 15:27:41,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,3.759E-04,2.506E-04,N/A,25.000,25.000,3.416E-04,50.000000,73.336799
+2026-10-01 15:27:43,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,4.332E-04,2.888E-04,N/A,25.000,25.000,3.959E-04,49.999999,73.567686
+2026-10-01 15:27:44,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.682E-04,1.121E-04,N/A,25.000,25.000,4.880E-05,50.000000,78.031800
+2026-10-01 15:27:45,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,3.150E-05,2.100E-05,N/A,25.000,25.000,2.649E-05,50.000001,77.686548
+2026-10-01 15:27:47,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.317E-05,8.780E-06,N/A,25.000,25.000,1.142E-05,50.000000,78.833653
+2026-10-01 15:27:48,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,9.846E-06,6.564E-06,N/A,25.000,25.000,8.886E-06,50.000000,78.136261
+2026-10-01 15:27:49,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,9.136E-06,6.091E-06,N/A,25.000,25.000,9.797E-06,50.000001,78.830313
+2026-10-01 15:27:51,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.140E-05,7.599E-06,N/A,25.000,25.000,1.106E-05,49.999999,77.502357
+2026-10-01 15:27:52,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,2.309E-05,1.539E-05,N/A,25.000,25.000,3.039E-05,50.000001,78.337000
+2026-10-01 15:27:53,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.867E-05,1.245E-05,N/A,25.000,25.000,1.446E-05,49.999999,77.699055
+2026-10-01 15:27:54,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,2.703E-05,1.802E-05,N/A,25.000,25.000,5.046E-05,50.000001,77.792719
+2026-10-01 15:27:56,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.178E-04,7.853E-05,N/A,25.000,25.000,5.025E-04,49.999999,71.692685
+2026-10-01 15:27:57,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.470E-03,9.798E-04,N/A,25.000,25.000,2.744E-03,50.000001,56.115719
+2026-10-01 15:27:59,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,2.316E-03,1.544E-03,N/A,25.000,25.000,7.252E-04,49.999999,69.691779
+2026-10-01 15:28:00,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,3.588E-04,2.392E-04,N/A,25.000,25.000,9.651E-04,49.999999,67.520524
+2026-10-01 15:28:01,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.715E-03,1.143E-03,N/A,25.000,25.000,1.489E-03,50.000000,64.779785
+2026-10-01 15:28:02,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.002E-03,6.679E-04,N/A,25.000,25.000,1.012E-03,50.000001,66.979699
+2026-10-01 15:28:04,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,7.047E-04,4.698E-04,N/A,25.000,25.000,4.260E-04,50.000000,72.416602
+2026-10-01 15:28:05,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.399E-03,9.326E-04,N/A,25.000,25.000,3.092E-03,50.000000,52.462486
+2026-10-01 15:28:07,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,2.656E-03,1.771E-03,N/A,25.000,25.000,1.341E-03,50.000000,63.877068
+2026-10-01 15:28:08,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,5.351E-04,3.567E-04,N/A,25.000,25.000,8.389E-05,50.000000,77.153756
+2026-10-01 15:28:09,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,3.805E-05,2.537E-05,N/A,25.000,25.000,5.216E-05,50.000000,76.770574
+2026-10-01 15:28:10,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,5.302E-05,3.535E-05,N/A,25.000,25.000,2.269E-05,50.000000,78.127893
+2026-10-01 15:28:12,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,9.776E-06,6.517E-06,N/A,25.000,25.000,3.812E-06,50.000000,77.674269
+2026-10-01 15:28:13,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,2.227E-06,1.485E-06,N/A,25.000,25.000,2.118E-06,49.999999,78.802258
+2026-10-01 15:28:14,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.009E-06,6.729E-07,N/A,25.000,25.000,1.823E-07,50.000000,77.905939
+2026-10-01 15:28:16,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,7.582E-08,5.054E-08,N/A,25.000,25.000,4.573E-08,50.000000,79.032258
+2026-10-01 15:28:17,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,5.882E-08,3.922E-08,N/A,25.000,25.000,1.662E-08,50.000001,77.913428
+2026-10-01 15:28:18,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.804214
+2026-10-01 15:28:20,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.071983
+2026-10-01 15:28:21,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.766792
+2026-10-01 15:28:22,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.004325
+2026-10-01 15:28:24,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.663734
+2026-10-01 15:28:25,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.994273
+2026-10-01 15:28:26,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.708210
+2026-10-01 15:28:28,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.484E-08,9.891E-09,N/A,25.000,25.000,6.157E-08,49.999999,77.946604
+2026-10-01 15:28:29,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,4.329E-08,2.886E-08,N/A,25.000,25.000,0.000E+00,50.000001,78.933601
+2026-10-01 15:28:30,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,1.654E-07,49.999999,77.839813
+2026-10-01 15:28:32,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,3.119E-06,2.079E-06,N/A,25.000,25.000,4.592E-04,49.999999,74.260486
+2026-10-01 15:28:33,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,2.452E-03,1.635E-03,N/A,25.000,25.000,2.746E-03,50.000000,56.446494
+2026-10-01 15:28:34,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,7.027E-04,4.684E-04,N/A,25.000,25.000,1.049E-04,50.000000,76.746983
+2026-10-01 15:28:36,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.878E-04,1.252E-04,N/A,25.000,25.000,1.934E-04,50.000001,75.064501
+2026-10-01 15:28:37,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,4.873E-05,3.249E-05,N/A,25.000,25.000,9.163E-06,49.999999,78.478892
+2026-10-01 15:28:38,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,2.477E-06,1.651E-06,N/A,25.000,25.000,6.927E-07,50.000000,78.208564
+2026-10-01 15:28:40,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,2.766E-07,1.844E-07,N/A,25.000,25.000,1.286E-07,50.000001,78.500636
+2026-10-01 15:28:41,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,1.759E-07,1.172E-07,N/A,25.000,25.000,3.064E-07,50.000000,78.240714
+2026-10-01 15:28:42,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,2.232E-07,1.488E-07,N/A,25.000,25.000,1.234E-07,50.000000,78.528272
+2026-10-01 15:28:44,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,3.233E-07,2.156E-07,N/A,25.000,25.000,3.472E-07,50.000001,78.196118
+2026-10-01 15:28:45,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,2.002E-07,1.334E-07,N/A,25.000,25.000,1.081E-07,50.000000,78.635905
+2026-10-01 15:28:46,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,7.463E-08,4.975E-08,N/A,25.000,25.000,1.102E-07,49.999999,78.624146
+2026-10-01 15:28:48,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,6.163E-08,4.109E-08,N/A,25.000,25.000,0.000E+00,50.000000,78.561887
+2026-10-01 15:28:49,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.486928
+2026-10-01 15:28:50,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.387794
+2026-10-01 15:28:51,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.199818
+2026-10-01 15:28:53,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.209993
+2026-10-01 15:28:54,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.402195
+2026-10-01 15:28:55,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.486348
+2026-10-01 15:28:57,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.512307
+2026-10-01 15:28:58,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.581459
+2026-10-01 15:28:59,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.882388
+2026-10-01 15:29:01,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.473975
+2026-10-01 15:29:02,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.881675
+2026-10-01 15:29:03,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.230988
+2026-10-01 15:29:05,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.632736
+2026-10-01 15:29:06,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.508740
+2026-10-01 15:29:07,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.607940
+2026-10-01 15:29:09,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.364581
+2026-10-01 15:29:10,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.816383
+2026-10-01 15:29:11,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.088642
+2026-10-01 15:29:13,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.783344
+2026-10-01 15:29:14,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.282712
+2026-10-01 15:29:15,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.560745
+2026-10-01 15:29:17,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.218703
+2026-10-01 15:29:18,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.374635
+2026-10-01 15:29:19,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.263870
+2026-10-01 15:29:21,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.521204
+2026-10-01 15:29:22,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.163112
+2026-10-01 15:29:24,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.486847
+2026-10-01 15:29:25,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.140170
+2026-10-01 15:29:26,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.490668
+2026-10-01 15:29:27,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.044603
+2026-10-01 15:29:29,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.283075
+2026-10-01 15:29:30,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.196839
+2026-10-01 15:29:32,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.508828
+2026-10-01 15:29:33,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.434945
+2026-10-01 15:29:34,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.425875
+2026-10-01 15:29:36,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.418640
+2026-10-01 15:29:37,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.345349
+2026-10-01 15:29:39,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.429910
+2026-10-01 15:29:40,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.987110
+2026-10-01 15:29:41,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.181441
+2026-10-01 15:29:43,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.003885
+2026-10-01 15:29:44,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.654496
+2026-10-01 15:29:45,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.341875
+2026-10-01 15:29:47,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.595536
+2026-10-01 15:29:48,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.268303
+2026-10-01 15:29:49,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.745912
+2026-10-01 15:29:51,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.177902
+2026-10-01 15:29:52,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.963591
+2026-10-01 15:29:53,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.085999
+2026-10-01 15:29:55,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.503541
+2026-10-01 15:29:56,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,78.013055
+2026-10-01 15:29:57,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.876880
+2026-10-01 15:29:59,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,78.127184
+2026-10-01 15:30:00,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.373588
+2026-10-01 15:30:01,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.387479
+2026-10-01 15:30:02,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,78.031226
+2026-10-01 15:30:05,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.882678
+2026-10-01 15:30:06,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000001,79.141948
+2026-10-01 15:30:07,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,49.999999,77.226312
+2026-10-01 15:30:08,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,79.322857
+2026-10-01 15:30:10,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,N/A,25.000,25.000,0.000E+00,50.000000,77.705325
