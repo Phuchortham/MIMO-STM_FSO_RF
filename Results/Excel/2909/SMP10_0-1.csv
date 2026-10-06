@@ -1,0 +1,300 @@
+﻿Time,Mode,FSO-BER1,FSO-BER2,FSO-ABER,RF-BER,Rx1,Rx2,OBER,Throughput,Delivery
+2026-09-29 17:14:46,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,9.999999,0.000000
+2026-09-29 17:14:47,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:14:48,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:14:49,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:14:50,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:14:51,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:14:52,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:14:53,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:14:54,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:14:55,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:14:56,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:14:57,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:14:58,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:00,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:01,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:02,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:03,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:04,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:05,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:06,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:08,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:09,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:10,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:11,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:12,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000001,0.000000
+2026-09-29 17:15:13,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:14,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,9.999999,0.000000
+2026-09-29 17:15:15,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:16,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:17,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000001,0.000000
+2026-09-29 17:15:19,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:20,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:21,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:22,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000001,0.000000
+2026-09-29 17:15:23,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:24,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:25,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:26,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:27,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:28,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:29,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:31,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:32,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:33,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:34,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:35,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000001,0.000000
+2026-09-29 17:15:36,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:37,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,9.999999,0.000000
+2026-09-29 17:15:38,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000001,0.000000
+2026-09-29 17:15:40,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,9.999999,0.000000
+2026-09-29 17:15:41,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:42,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:43,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:44,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:45,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:46,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:47,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:48,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:50,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,9.999999,0.000000
+2026-09-29 17:15:51,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000001,0.000000
+2026-09-29 17:15:52,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:53,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:54,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000001,0.000000
+2026-09-29 17:15:55,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:56,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,9.999999,0.000000
+2026-09-29 17:15:57,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:15:58,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:00,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:01,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:02,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000001,0.000000
+2026-09-29 17:16:03,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:05,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000001,0.000000
+2026-09-29 17:16:06,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:07,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:08,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000001,0.000000
+2026-09-29 17:16:09,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:10,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:11,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000001,0.000000
+2026-09-29 17:16:13,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:14,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:15,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:16,Diversity / RX1 / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,10.000000,0.000000
+2026-09-29 17:16:35,SMP / paired RX / per-link line rate / collecting interval baseline / interval BER,Measuring...,Measuring...,Measuring...,Disabled,Measuring...,Measuring...,Measuring...,Measuring...,Measuring...
+2026-09-29 17:16:36,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.163026
+2026-09-29 17:16:37,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.909673
+2026-09-29 17:16:38,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.921309
+2026-09-29 17:16:39,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.931996
+2026-09-29 17:16:40,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.358748
+2026-09-29 17:16:41,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999998,76.278992
+2026-09-29 17:16:43,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.376860
+2026-09-29 17:16:44,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.184367
+2026-09-29 17:16:45,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.151135
+2026-09-29 17:16:46,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.962051
+2026-09-29 17:16:47,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.196081
+2026-09-29 17:16:48,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.175677
+2026-09-29 17:16:49,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.406418
+2026-09-29 17:16:50,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.401533
+2026-09-29 17:16:51,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.089033
+2026-09-29 17:16:53,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.009740
+2026-09-29 17:16:54,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.298185
+2026-09-29 17:16:55,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.402053
+2026-09-29 17:16:56,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.316091
+2026-09-29 17:16:57,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.935790
+2026-09-29 17:16:58,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.903263
+2026-09-29 17:16:59,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.845336
+2026-09-29 17:17:00,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.092382
+2026-09-29 17:17:01,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.093211
+2026-09-29 17:17:02,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.931886
+2026-09-29 17:17:04,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.794861
+2026-09-29 17:17:05,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.732468
+2026-09-29 17:17:06,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.848491
+2026-09-29 17:17:07,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.081371
+2026-09-29 17:17:08,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.042124
+2026-09-29 17:17:09,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.940451
+2026-09-29 17:17:10,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.881154
+2026-09-29 17:17:11,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.865698
+2026-09-29 17:17:13,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.741278
+2026-09-29 17:17:14,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999998,76.082613
+2026-09-29 17:17:15,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.255188
+2026-09-29 17:17:16,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.121704
+2026-09-29 17:17:17,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.002873
+2026-09-29 17:17:18,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.004534
+2026-09-29 17:17:19,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.040277
+2026-09-29 17:17:20,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.255880
+2026-09-29 17:17:21,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999998,76.076151
+2026-09-29 17:17:23,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.106184
+2026-09-29 17:17:24,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.349967
+2026-09-29 17:17:25,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.972992
+2026-09-29 17:17:26,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.851478
+2026-09-29 17:17:27,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.938630
+2026-09-29 17:17:28,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.012346
+2026-09-29 17:17:29,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.011732
+2026-09-29 17:17:30,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.757436
+2026-09-29 17:17:32,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.632079
+2026-09-29 17:17:33,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.884824
+2026-09-29 17:17:34,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.978868
+2026-09-29 17:17:35,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.023677
+2026-09-29 17:17:36,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.024338
+2026-09-29 17:17:37,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.032410
+2026-09-29 17:17:38,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.881669
+2026-09-29 17:17:39,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.921808
+2026-09-29 17:17:40,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.905394
+2026-09-29 17:17:41,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.662837
+2026-09-29 17:17:43,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999998,75.866933
+2026-09-29 17:17:44,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.771393
+2026-09-29 17:17:45,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.735864
+2026-09-29 17:17:46,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.940442
+2026-09-29 17:17:47,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.679146
+2026-09-29 17:17:48,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.790054
+2026-09-29 17:17:49,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.732262
+2026-09-29 17:17:50,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.756997
+2026-09-29 17:17:52,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.584693
+2026-09-29 17:17:53,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.651104
+2026-09-29 17:17:54,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.778455
+2026-09-29 17:17:55,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.557561
+2026-09-29 17:17:56,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.733543
+2026-09-29 17:17:57,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.712800
+2026-09-29 17:17:58,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.671464
+2026-09-29 17:17:59,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.661065
+2026-09-29 17:18:00,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.884081
+2026-09-29 17:18:02,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.662394
+2026-09-29 17:18:03,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.867151
+2026-09-29 17:18:04,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.853624
+2026-09-29 17:18:05,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.938002
+2026-09-29 17:18:06,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.810019
+2026-09-29 17:18:07,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.821123
+2026-09-29 17:18:08,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.054932
+2026-09-29 17:18:09,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.137892
+2026-09-29 17:18:11,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.989522
+2026-09-29 17:18:12,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.027965
+2026-09-29 17:18:13,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.081808
+2026-09-29 17:18:14,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.933343
+2026-09-29 17:18:15,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.188804
+2026-09-29 17:18:16,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.353442
+2026-09-29 17:18:17,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.303476
+2026-09-29 17:18:18,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.867864
+2026-09-29 17:18:19,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.892441
+2026-09-29 17:18:20,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.117523
+2026-09-29 17:18:22,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.922295
+2026-09-29 17:18:23,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.998724
+2026-09-29 17:18:24,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.170494
+2026-09-29 17:18:25,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.979185
+2026-09-29 17:18:26,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.025343
+2026-09-29 17:18:27,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.151740
+2026-09-29 17:18:28,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.033239
+2026-09-29 17:18:29,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999998,75.923206
+2026-09-29 17:18:31,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.071541
+2026-09-29 17:18:32,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.971764
+2026-09-29 17:18:33,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.678142
+2026-09-29 17:18:34,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.969280
+2026-09-29 17:18:35,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.993379
+2026-09-29 17:18:36,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.983180
+2026-09-29 17:18:37,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.864451
+2026-09-29 17:18:38,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.905190
+2026-09-29 17:18:40,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.841605
+2026-09-29 17:18:41,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.922911
+2026-09-29 17:18:42,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.089244
+2026-09-29 17:18:43,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.227261
+2026-09-29 17:18:44,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.133260
+2026-09-29 17:18:45,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.967746
+2026-09-29 17:18:46,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.136453
+2026-09-29 17:18:47,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.026130
+2026-09-29 17:18:48,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.224170
+2026-09-29 17:18:50,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.246094
+2026-09-29 17:18:51,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.109172
+2026-09-29 17:18:52,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.086090
+2026-09-29 17:18:53,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.031632
+2026-09-29 17:18:54,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.057660
+2026-09-29 17:18:55,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999998,76.006974
+2026-09-29 17:18:56,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.077734
+2026-09-29 17:18:57,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.817627
+2026-09-29 17:18:58,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.557405
+2026-09-29 17:19:00,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.640089
+2026-09-29 17:19:01,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.927195
+2026-09-29 17:19:02,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.002976
+2026-09-29 17:19:03,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.138814
+2026-09-29 17:19:04,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.217302
+2026-09-29 17:19:05,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.010997
+2026-09-29 17:19:06,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.906811
+2026-09-29 17:19:07,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.016571
+2026-09-29 17:19:08,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.085401
+2026-09-29 17:19:10,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.169407
+2026-09-29 17:19:11,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.849185
+2026-09-29 17:19:12,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.670395
+2026-09-29 17:19:13,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.914457
+2026-09-29 17:19:14,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.904688
+2026-09-29 17:19:15,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.956115
+2026-09-29 17:19:16,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.015347
+2026-09-29 17:19:17,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.193578
+2026-09-29 17:19:18,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.975849
+2026-09-29 17:19:20,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.936322
+2026-09-29 17:19:21,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.009073
+2026-09-29 17:19:22,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.264781
+2026-09-29 17:19:23,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.215626
+2026-09-29 17:19:24,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.267639
+2026-09-29 17:19:25,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.981142
+2026-09-29 17:19:26,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.127109
+2026-09-29 17:19:28,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.230921
+2026-09-29 17:19:29,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.156144
+2026-09-29 17:19:30,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.088151
+2026-09-29 17:19:31,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.067733
+2026-09-29 17:19:32,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.042321
+2026-09-29 17:19:33,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.915525
+2026-09-29 17:19:34,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.160269
+2026-09-29 17:19:35,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.195835
+2026-09-29 17:19:37,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.271147
+2026-09-29 17:19:38,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.092389
+2026-09-29 17:19:39,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.105740
+2026-09-29 17:19:40,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.276300
+2026-09-29 17:19:41,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.246749
+2026-09-29 17:19:42,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.165659
+2026-09-29 17:19:43,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.222521
+2026-09-29 17:19:44,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.363905
+2026-09-29 17:19:45,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,75.986655
+2026-09-29 17:19:47,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.006349
+2026-09-29 17:19:48,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.060422
+2026-09-29 17:19:49,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.123975
+2026-09-29 17:19:50,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.372857
+2026-09-29 17:19:51,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.113365
+2026-09-29 17:19:52,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000002,75.840588
+2026-09-29 17:19:53,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.936130
+2026-09-29 17:19:55,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.083277
+2026-09-29 17:19:56,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.196724
+2026-09-29 17:19:57,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.310664
+2026-09-29 17:19:58,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.083428
+2026-09-29 17:19:59,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.899480
+2026-09-29 17:20:00,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.174263
+2026-09-29 17:20:01,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.133675
+2026-09-29 17:20:02,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.099571
+2026-09-29 17:20:04,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.184559
+2026-09-29 17:20:05,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.126008
+2026-09-29 17:20:06,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.907265
+2026-09-29 17:20:07,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,75.912148
+2026-09-29 17:20:08,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.018680
+2026-09-29 17:20:09,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.059506
+2026-09-29 17:20:10,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.090058
+2026-09-29 17:20:11,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.077731
+2026-09-29 17:20:13,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.036298
+2026-09-29 17:20:14,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.075556
+2026-09-29 17:20:15,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999998,76.132297
+2026-09-29 17:20:16,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.259907
+2026-09-29 17:20:17,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.284215
+2026-09-29 17:20:18,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.060517
+2026-09-29 17:20:19,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,75.883274
+2026-09-29 17:20:20,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.000263
+2026-09-29 17:20:22,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000002,76.105025
+2026-09-29 17:20:23,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.246385
+2026-09-29 17:20:24,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.296357
+2026-09-29 17:20:25,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.115551
+2026-09-29 17:20:26,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.048112
+2026-09-29 17:20:27,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.211415
+2026-09-29 17:20:29,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.294932
+2026-09-29 17:20:30,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.471682
+2026-09-29 17:20:31,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.482033
+2026-09-29 17:20:32,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.261975
+2026-09-29 17:20:34,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.304263
+2026-09-29 17:20:35,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000001,76.041714
+2026-09-29 17:20:36,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,19.999999,76.339678
+2026-09-29 17:20:37,SMP / paired RX / per-link line rate / both lanes counting / interval BER,0.000E+00,0.000E+00,0.000E+00,Disabled,10.000,10.000,0.000E+00,20.000000,76.737965
