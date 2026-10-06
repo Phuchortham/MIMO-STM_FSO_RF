@@ -1,0 +1,13 @@
+D:\FSOCX86\FSOCX86\bin\Debug\FSOCX86.exe.config
+D:\FSOCX86\FSOCX86\bin\Debug\FSOCX86.exe
+D:\FSOCX86\FSOCX86\bin\Debug\FSOCX86.pdb
+D:\FSOCX86\FSOCX86\obj\Debug\FSOCX86.csproj.AssemblyReference.cache
+D:\FSOCX86\FSOCX86\obj\Debug\FSOCX86.csproj.SuggestedBindingRedirects.cache
+D:\FSOCX86\FSOCX86\obj\Debug\FSOCX86.Form1.resources
+D:\FSOCX86\FSOCX86\obj\Debug\FSOCX86.Properties.Resources.resources
+D:\FSOCX86\FSOCX86\obj\Debug\FSOCX86.csproj.GenerateResource.cache
+D:\FSOCX86\FSOCX86\obj\Debug\FSOCX86.csproj.CoreCompileInputs.cache
+D:\FSOCX86\FSOCX86\obj\Debug\FSOCX86.exe
+D:\FSOCX86\FSOCX86\obj\Debug\FSOCX86.pdb
+D:\FSOCX86\FSOCX86\bin\Debug\FTD3XXWU_NET.dll
+D:\FSOCX86\FSOCX86\obj\Debug\FSOCX86.csproj.CopyComplete

@@ -1,0 +1,3812 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Diagnostics;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using FTD3XXWU_NET;
+using System.IO;
+
+namespace FSOCX86
+{
+    public partial class Form1 : Form
+    {
+        private const string SOFTWARE_VERSION = "3.3.2";
+        private const uint TEXT_V23_FIRMWARE = 0x54323331U; // T231, ID52; newest byte in least-significant byte
+        private const uint TX_FRAME_FIRMWARE = 0x54584631U; // TXF1
+        private const uint SMP_FIRMWARE = 0x534D5031U; // SMP1, status ID 37
+        private const uint SMP_V31_DIAGNOSTICS = 0x53333144U; // S31D, ID75; SMP-only extension
+        private uint lastCounterFirmware = uint.MaxValue;
+
+        private bool useLegacyTextReader = true;
+        private ToolStripMenuItem legacyTextMenuItem;
+        private ToolStripMenuItem freshTextMenuItem;
+
+        internal enum SweepOutcome
+        {
+            NotRun, Measuring, MeasuredPointApplied, FallbackApplied, Failed, Cancelled
+        }
+
+        private readonly SweepOutcome[] receiverSweepOutcomes = new SweepOutcome[2];
+
+        // Keep the normal warning dialog; tests can substitute a non-UI sink.
+        private Action<string, string> showSweepWarning = delegate (string message, string title)
+        {
+            MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        };
+
+
+        private FTDI usb = new FTDI();
+
+        private const byte PIPE_OUT = 0x02;
+        private const byte PIPE_IN = 0x82;
+
+        private bool isConnected = false;
+        private bool txRunning = false;
+
+        private readonly System.Windows.Forms.Timer clockTimer =
+            new System.Windows.Forms.Timer();
+
+        private readonly System.Windows.Forms.Timer statusTimer =
+            new System.Windows.Forms.Timer();
+
+        private bool usbBusy = false;
+        private bool phaseSweepRunning = false;
+        private bool activeDiversityRun = false;
+        private bool activeSmpRun = false;
+        private bool ActiveMimoRun { get { return activeDiversityRun || activeSmpRun; } }
+        private TxCounterSnapshot previousBerSnapshot;
+        private int lastDisplayedDiversityLink = -1;
+        private bool diversityModeWarningShown = false;
+
+        private const byte MIMO_MODE_SISO = 0;
+        private const byte MIMO_MODE_DIVERSITY = 1;
+        private const byte MIMO_MODE_SMP = 2;
+
+        private ulong fpgaRxBits = 0;
+        private ulong fpgaErrorBits = 0;
+
+
+        // BER-only change from V2.1.1: retain each receiver's previous
+        // cumulative reading. TX counts and the selected bitrate do not
+        // participate in this calculation.
+        internal sealed class RxBerCounter
+        {
+            private bool hasPrevious;
+            private uint previousBits;
+            private uint previousErrors;
+
+            public void Reset()
+            {
+                hasPrevious = false;
+            }
+
+            public bool TryGetDelta(uint bits, uint errors,
+                out uint bitDelta, out uint errorDelta)
+            {
+                bool ready = hasPrevious;
+                bitDelta = ready ? unchecked(bits - previousBits) : 0U;
+                errorDelta = ready ? unchecked(errors - previousErrors) : 0U;
+
+                previousBits = bits;
+                previousErrors = errors;
+                hasPrevious = true;
+                return ready;
+            }
+        }
+
+        private readonly RxBerCounter rx1BerCounter = new RxBerCounter();
+        private readonly RxBerCounter rx2BerCounter = new RxBerCounter();
+
+        private void ResetBerBaseline()
+        {
+            ResetDeliveryMetrics();
+            InvalidateRfOptical();
+            previousBerSnapshot = null;
+            previousTxTiming = null;
+            unchecked { txTimingEpoch++; }
+            ClearTxTimingDisplay();
+            rx1BerCounter.Reset();
+            rx2BerCounter.Reset();
+            fpgaRxBits = 0;
+            fpgaErrorBits = 0;
+            lblBER.Text = "Measuring...";
+        }
+
+
+        // Timing diagnostics never scale the raw counters or enter BER formulas.
+        internal sealed class TxCounterSnapshot
+        {
+            public uint Tx, Rx1, Errors1, Rx2, Errors2, Status;
+            public uint CounterFirmware, LegacyTx;
+            public long ReadStarted, ReadEnded;
+            public int Epoch;
+            public bool HasModeEpoch;
+            public uint ModeEpoch;
+            public byte ActiveMode
+            {
+                get
+                {
+                    return HasModeEpoch ? (byte)(ModeEpoch & 3U) :
+                  (byte)((Status & 0x4000U) != 0 ? MIMO_MODE_DIVERSITY : MIMO_MODE_SISO);
+                }
+            }
+        }
+
+        internal static bool SameCounterRun(TxCounterSnapshot first, TxCounterSnapshot last)
+        {
+            return first != null && last != null &&
+                first.Epoch == last.Epoch && first.CounterFirmware == last.CounterFirmware &&
+                first.HasModeEpoch == last.HasModeEpoch &&
+                (!first.HasModeEpoch || first.ModeEpoch == last.ModeEpoch) &&
+                (first.Status & 0xFFFF4900U) == (last.Status & 0xFFFF4900U);
+        }
+
+        private bool PrepareBerSnapshot(TxCounterSnapshot current, byte expectedMode)
+        {
+            // A mode/run change invalidates RX deltas as well as timing.
+            // Bit 6 still means DIV only; SMP is identified by the full ID38 mode.
+            bool valid = (current.Status & 0xFF) == 'R' &&
+                ((current.Status >> 8) & 0x09) == 0x01 &&
+                current.ActiveMode == expectedMode &&
+                (expectedMode != MIMO_MODE_SMP || current.HasModeEpoch);
+            if (!valid)
+            {
+                ResetBerBaseline();
+                ClearRunReceivedText(expectedMode);
+                return false;
+            }
+            if (!SameCounterRun(previousBerSnapshot, current))
+            {
+                InvalidateRfOptical();
+                rx1BerCounter.Reset();
+                rx2BerCounter.Reset();
+                ClearRunReceivedText(expectedMode);
+            }
+            previousBerSnapshot = current;
+            return true;
+        }
+
+        internal sealed class TxTimingWindow
+        {
+            public double Seconds, EstimatedTx, RawTxMbps, RawToEstimate;
+            public double Rx1Mbps, Rx2Mbps, HostTimingAllowance;
+            public uint DeltaTx, DeltaRx1, DeltaErrors1, DeltaRx2, DeltaErrors2;
+
+            internal static double NominalMbps(uint status)
+            {
+                switch ((char)((status >> 16) & 0xFF))
+                {
+                    case 'K': return 1.0;
+                    case 'L': return 2.0;
+                    case 'M': return 5.0;
+                    case 'N': return 10.0;
+                    case 'O': return 25.0;
+                    case 'P': return 50.0;
+                    default: return double.NaN;
+                }
+            }
+
+            internal static bool TryCreate(TxCounterSnapshot first,
+                TxCounterSnapshot last, out TxTimingWindow window, out string reason)
+            {
+                window = null;
+                reason = "collecting a fresh timing baseline";
+                if (first == null || last == null) return false;
+                if (first.CounterFirmware != last.CounterFirmware)
+                { reason = "FPGA counter implementation changed"; return false; }
+                if (first.Epoch != last.Epoch)
+                { reason = "Start/Stop/reset/tune boundary"; return false; }
+                if (first.HasModeEpoch != last.HasModeEpoch ||
+                    (first.HasModeEpoch && first.ModeEpoch != last.ModeEpoch))
+                { reason = "FPGA mode/run epoch changed"; return false; }
+                if ((first.Status & 0xFF) != 'R' || (last.Status & 0xFF) != 'R')
+                { reason = "invalid status header"; return false; }
+                if ((first.Status & 0xFFFF4000U) != (last.Status & 0xFFFF4000U))
+                { reason = "rate/modulation/mode changed"; return false; }
+                // Flags: bit0 TX enabled, bit3 manual blink.
+                if (((first.Status >> 8) & 0x09) != 0x01 ||
+                    ((last.Status >> 8) & 0x09) != 0x01)
+                { reason = "TX stopped or manual blink active"; return false; }
+                double rate = NominalMbps(last.Status);
+                if (double.IsNaN(rate))
+                { reason = "unknown FPGA speed code"; return false; }
+                if (first.ReadEnded < first.ReadStarted || last.ReadEnded < last.ReadStarted)
+                { reason = "invalid host timestamps"; return false; }
+                double seconds = (0.5 * (last.ReadStarted - first.ReadStarted) +
+                                  0.5 * (last.ReadEnded - first.ReadEnded)) / Stopwatch.Frequency;
+                if (seconds <= 0 || double.IsNaN(seconds) || double.IsInfinity(seconds))
+                { reason = "non-positive elapsed time"; return false; }
+                // Diagnostics only: do not infer a rate across a long pause.
+                // This guard never rejects or changes the existing BER result.
+                if (seconds > 10.0)
+                { reason = "gap over 10 s; reset/wrap ambiguity"; return false; }
+                uint dTx = unchecked(last.Tx - first.Tx);
+                uint dRx1 = unchecked(last.Rx1 - first.Rx1);
+                uint dRx2 = unchecked(last.Rx2 - first.Rx2);
+                window = new TxTimingWindow
+                {
+                    Seconds = seconds,
+                    EstimatedTx = rate * 1000000.0 * seconds,
+                    DeltaTx = dTx,
+                    DeltaRx1 = dRx1,
+                    DeltaRx2 = dRx2,
+                    DeltaErrors1 = unchecked(last.Errors1 - first.Errors1),
+                    DeltaErrors2 = unchecked(last.Errors2 - first.Errors2),
+                    RawTxMbps = dTx / seconds / 1000000.0,
+                    Rx1Mbps = dRx1 / seconds / 1000000.0,
+                    Rx2Mbps = dRx2 / seconds / 1000000.0,
+                    RawToEstimate = dTx / (rate * 1000000.0 * seconds),
+                    // Approximate allowance, not an FPGA timestamp guarantee:
+                    // endpoint USB spans plus two nominal 1-ms snapshot ages.
+                    HostTimingAllowance =
+                        0.5 * ((first.ReadEnded - first.ReadStarted) +
+                               (last.ReadEnded - last.ReadStarted)) / Stopwatch.Frequency + 0.002
+                };
+                reason = "";
+                return true;
+            }
+        }
+
+        private TxCounterSnapshot previousTxTiming;
+        private int txTimingEpoch;
+        private Label lblTxEstimate;
+        private Label lblTxEstimateCaption;
+        private Label lblTxTimingWindow;
+        private Label lblTxRawWindowCaption;
+
+        private void InitializeTxTimingDisplay()
+        {
+            label11.Text = "TX raw bits:";
+            label11.AutoSize = false;
+            label11.Width = 66;
+            lblTxEstimateCaption = new Label
+            {
+                Name = "lblTxEstimateCaption",
+                Text = "TX est./window:",
+                Location = new System.Drawing.Point(202, 37),
+                Size = new System.Drawing.Size(98, 13)
+            };
+            lblTxEstimate = new Label
+            {
+                Name = "lblTxEstimate",
+                Text = "N/A",
+                Location = new System.Drawing.Point(302, 37),
+                Size = new System.Drawing.Size(96, 13),
+                AutoEllipsis = true
+            };
+            lblTxRawWindowCaption = new Label
+            {
+                Name = "lblTxRawWindowCaption",
+                Text = "TX raw/window:",
+                Location = new System.Drawing.Point(202, 54),
+                Size = new System.Drawing.Size(98, 13)
+            };
+            lblTxTimingWindow = new Label
+            {
+                Name = "lblTxTimingWindow",
+                Text = "N/A",
+                Location = new System.Drawing.Point(302, 54),
+                Size = new System.Drawing.Size(96, 13),
+                AutoEllipsis = true
+            };
+            grpLinkQuality.Controls.Add(lblTxEstimateCaption);
+            grpLinkQuality.Controls.Add(lblTxEstimate);
+            grpLinkQuality.Controls.Add(lblTxRawWindowCaption);
+            grpLinkQuality.Controls.Add(lblTxTimingWindow);
+        }
+
+        private void ClearTxTimingDisplay()
+        {
+            if (lblTxEstimate != null) lblTxEstimate.Text = "N/A";
+            if (lblTxTimingWindow != null) lblTxTimingWindow.Text = "N/A";
+            if (grpLinkQuality != null) grpLinkQuality.Text = "Link Quality | window: N/A";
+        }
+
+        private bool ReadCounterSnapshot(out TxCounterSnapshot snapshot)
+        {
+            snapshot = new TxCounterSnapshot();
+            // Query the marker BEFORE ID 1 so it cannot break the frozen group.
+            uint firmware;
+            if (!ReadStatusWordRaw(35, out firmware)) return false;
+            if (lastCounterFirmware != firmware)
+            {
+                ResetBerBaseline();
+                lastCounterFirmware = firmware;
+                Action<string> firmwareLog = ActiveMimoRun
+                    ? new Action<string>(AddMimoLog) : new Action<string>(AddLog);
+                firmwareLog(firmware == TX_FRAME_FIRMWARE
+                    ? "TXF1 DETECTED: ID1 counts line bits in completed encoded frames. ID36 retains the old counter for comparison."
+                    : "COUNTER WARNING: TXF1 FPGA not detected (ID35=0x" +
+                      firmware.ToString("X8") + "). Old TX counter remains active; compile/program the supplied FPGA file.");
+            }
+            snapshot.CounterFirmware = firmware;
+            snapshot.Epoch = txTimingEpoch;
+            // ID 1 returns TX and freezes both receivers and flags together.
+            // Timestamp that request only, not the later companion USB reads.
+            snapshot.ReadStarted = Stopwatch.GetTimestamp();
+            bool txOk = ReadStatusWordRaw(1, out snapshot.Tx);
+            snapshot.ReadEnded = Stopwatch.GetTimestamp();
+            if (!txOk) return false;
+            // Exact sequence completes the FPGA's frozen query group, in
+            // SISO too. Tune/debug IDs must be read AFTER the complete group.
+            bool complete = ReadStatusWordRaw(2, out snapshot.Rx1) &&
+                   ReadStatusWordRaw(3, out snapshot.Errors1) &&
+                   ReadStatusWordRaw(28, out snapshot.Rx2) &&
+                   ReadStatusWordRaw(29, out snapshot.Errors2) &&
+                   ReadStatusWordRaw(4, out snapshot.Status);
+            if (!complete) return false;
+            // Stage 6 returns the legacy TX from the SAME ID1 snapshot.
+            // Never substitute a later live ID6 value into this comparison.
+            if (firmware == TX_FRAME_FIRMWARE)
+            {
+                if (!ReadStatusWordRaw(36, out snapshot.LegacyTx)) return false;
+                // ID38 retains the ID1-frozen mode/epoch after ID36 closes the group.
+                if (!ReadStatusWordRaw(38, out snapshot.ModeEpoch)) return false;
+                snapshot.HasModeEpoch = !IsUnsupportedStatusWord(snapshot.ModeEpoch, 38);
+            }
+            return true;
+        }
+
+        private void ReportTxTiming(TxCounterSnapshot first, TxCounterSnapshot last,
+            string context, Action<string> log, bool showRx2)
+        {
+            TxTimingWindow window;
+            string reason;
+            if (!TxTimingWindow.TryCreate(first, last, out window, out reason))
+            {
+                ClearTxTimingDisplay();
+                log("TX CHECK " + context + " | estimate=N/A | " + reason);
+                return;
+            }
+            if (lblTxEstimate != null)
+                lblTxEstimate.Text = window.EstimatedTx.ToString("N0", CultureInfo.InvariantCulture);
+            if (lblTxTimingWindow != null)
+                lblTxTimingWindow.Text = window.DeltaTx.ToString("N0", CultureInfo.InvariantCulture);
+            if (grpLinkQuality != null)
+                grpLinkQuality.Text = "Link Quality | window: " +
+                    window.Seconds.ToString("0.000", CultureInfo.InvariantCulture) + " s";
+            log("TX CHECK " + context +
+                " | dt=" + window.Seconds.ToString("0.000000", CultureInfo.InvariantCulture) + " s" +
+                " | rawTX start=" + first.Tx.ToString(CultureInfo.InvariantCulture) +
+                " end=" + last.Tx.ToString(CultureInfo.InvariantCulture) +
+                " delta=" + window.DeltaTx.ToString("N0", CultureInfo.InvariantCulture) +
+                " | TX est/window=" + window.EstimatedTx.ToString("N0", CultureInfo.InvariantCulture) +
+                " bits (configured line rate x time)" +
+                " | rawTX rate=" + window.RawTxMbps.ToString("0.000", CultureInfo.InvariantCulture) +
+                " Mbps | raw/est=" + window.RawToEstimate.ToString("0.000", CultureInfo.InvariantCulture) + "x");
+            log("RX CHECK " + context +
+                " | dRX1=" + window.DeltaRx1.ToString("N0", CultureInfo.InvariantCulture) +
+                " dE1=" + window.DeltaErrors1.ToString("N0", CultureInfo.InvariantCulture) +
+                " RX1=" + window.Rx1Mbps.ToString("0.000", CultureInfo.InvariantCulture) + " Mbps" +
+                (showRx2 ? " | dRX2=" + window.DeltaRx2.ToString("N0", CultureInfo.InvariantCulture) +
+                    " dE2=" + window.DeltaErrors2.ToString("N0", CultureInfo.InvariantCulture) +
+                    " RX2=" + window.Rx2Mbps.ToString("0.000", CultureInfo.InvariantCulture) + " Mbps" : "") +
+                " | flags(start/end)=" +
+                ((first.Status >> 8) & 0xFF).ToString("X2") + "/" +
+                ((last.Status >> 8) & 0xFF).ToString("X2") +
+                " | approx timing allowance +/-" +
+                (window.HostTimingAllowance * 1000.0).ToString("0.0", CultureInfo.InvariantCulture) + " ms" +
+                (window.HostTimingAllowance > window.Seconds * 0.1 ? " (large USB timing uncertainty)" : ""));
+            if (first.CounterFirmware == TX_FRAME_FIRMWARE &&
+                last.CounterFirmware == TX_FRAME_FIRMWARE)
+            {
+                uint legacyDelta = unchecked(last.LegacyTx - first.LegacyTx);
+                log("COUNTER COMPARE " + context +
+                    " | TXF1 completed-frame delta=" + window.DeltaTx.ToString("N0", CultureInfo.InvariantCulture) +
+                    " | legacy delta=" + legacyDelta.ToString("N0", CultureInfo.InvariantCulture) +
+                    " | legacy rate=" + (legacyDelta / window.Seconds / 1000000.0).ToString("0.000", CultureInfo.InvariantCulture) +
+                    " Mcounts/s | legacy/TXF1=" +
+                    (window.DeltaTx == 0 ? "N/A" :
+                     ((double)legacyDelta / window.DeltaTx).ToString("0.000", CultureInfo.InvariantCulture) + "x"));
+            }
+            string integrityWarning = DescribeTxIntegrityWarning(window);
+            if (integrityWarning != null)
+                log("TX INTEGRITY WARNING " + context + " | " + integrityWarning);
+        }
+
+        // Diagnostic only. Do not normalize counters, discard BER, or infer that
+        // a plausible value proves the optical waveform is correct.
+        internal static string DescribeTxIntegrityWarning(TxTimingWindow window)
+        {
+            if (window == null || window.Seconds < 0.25 ||
+                double.IsNaN(window.Seconds) || double.IsInfinity(window.Seconds) ||
+                window.EstimatedTx <= 0 || double.IsNaN(window.EstimatedTx) ||
+                double.IsInfinity(window.EstimatedTx))
+                return null;
+
+            // RX can lead a completed-frame TX count by a few bits at a boundary.
+            // A conservative 128-bit allowance avoids calling that a stalled TX.
+            if (window.DeltaTx == 0 &&
+                (window.DeltaRx1 > 128U || window.DeltaRx2 > 128U))
+                return "reported TX counter did not advance while checked RX advanced. " +
+                    "Received text and RX BER do not validate the TX counter; raw values are unchanged.";
+
+            // The USB endpoint spans estimate host timing uncertainty, not an
+            // FPGA timestamp. Avoid a rate judgment across a very uncertain window.
+            if (double.IsNaN(window.HostTimingAllowance) ||
+                double.IsInfinity(window.HostTimingAllowance) ||
+                window.HostTimingAllowance < 0 ||
+                window.HostTimingAllowance > window.Seconds * 0.25)
+                return null;
+
+            double nominalBitsPerSecond = window.EstimatedTx / window.Seconds;
+            double toleranceBits = Math.Max(window.EstimatedTx * 0.15,
+                nominalBitsPerSecond * window.HostTimingAllowance + 128.0);
+            if (Math.Abs((double)window.DeltaTx - window.EstimatedTx) <= toleranceBits)
+                return null;
+
+            return "reported TX/window=" + window.DeltaTx.ToString("N0", CultureInfo.InvariantCulture) +
+                " is inconsistent with nominal rate/time estimate=" +
+                window.EstimatedTx.ToString("N0", CultureInfo.InvariantCulture) +
+                " +/-" + toleranceBits.ToString("N0", CultureInfo.InvariantCulture) +
+                " bits. This is not an optical-rate measurement; raw counters and RX BER are unchanged.";
+        }
+
+        private void UpdateTxTiming(TxCounterSnapshot current)
+        {
+            Action<string> log = ActiveMimoRun
+                ? new Action<string>(AddMimoLog) : new Action<string>(AddLog);
+            ReportTxTiming(previousTxTiming, current,
+                activeSmpRun ? "POLL SMP (TX per link)" : activeDiversityRun ? "POLL DIV" : "POLL SISO",
+                log, ActiveMimoRun);
+            previousTxTiming = current;
+        }
+
+        private sealed class PhaseSweepResult
+        {
+            public byte Phase;
+            public byte DelayBits;
+            public bool Locked;
+            public uint TestedBits;
+            public uint Errors;
+
+            public double Ber
+            {
+                get
+                {
+                    if (!Locked || TestedBits == 0)
+                        return double.PositiveInfinity;
+
+                    return (double)Errors / (double)TestedBits;
+                }
+            }
+        }
+
+        public Form1()
+        {
+            InitializeComponent();
+            InitializeTxTimingDisplay();
+            InitializeTextReadMenu();
+            InitializeRfBackup();
+            MIMOtxtTxMessage.Enabled = false;
+            MMOtxtRxMessage.ReadOnly = true;
+
+            // Designer already connects button click events.
+            // We only connect Load and ComboBox change here.
+            this.Load += Form1_Load;
+            cmbDataType.SelectedIndexChanged += cmbDataType_SelectedIndexChanged;
+            cmbMimoDataType.SelectedIndexChanged += cmbMimoDataType_SelectedIndexChanged;
+            tabMain.SelectedIndexChanged += tabMain_SelectedIndexChanged;
+
+            clockTimer.Interval = 1000;
+            clockTimer.Tick += clockTimer_Tick;
+
+            statusTimer.Interval = 1000; // read FPGA status every 1 second
+            statusTimer.Tick += statusTimer_Tick;
+        }
+
+        private void InitializeTextReadMenu()
+        {
+            if (components == null)
+                components = new System.ComponentModel.Container();
+            ContextMenuStrip menu = new ContextMenuStrip(components);
+            legacyTextMenuItem = new ToolStripMenuItem("V2.3.1 Text Repair TEST: chronological received-text snapshot");
+            freshTextMenuItem = new ToolStripMenuItem();
+            legacyTextMenuItem.Enabled = false;
+            menu.Items.Add(legacyTextMenuItem);
+            menu.Items.Add("Copy", null, delegate
+            {
+                TextBoxBase source = menu.SourceControl as TextBoxBase;
+                if (source != null) source.Copy();
+            });
+            menu.Items.Add("Select all", null, delegate
+            {
+                TextBoxBase source = menu.SourceControl as TextBoxBase;
+                if (source != null) source.SelectAll();
+            });
+            txtRxMessage.ContextMenuStrip = menu;
+            MMOtxtRxMessage.ContextMenuStrip = menu;
+            UpdateTextReadModeUi();
+        }
+
+        private bool SelectTextReadMode(bool legacy)
+        {
+            // Change only between polls/sweeps. Keeping TX running preserves
+            // the selected phase and counter epoch for a controlled A/B test.
+            if (phaseSweepRunning || usbBusy || activeSmpRun) return false;
+            useLegacyTextReader = legacy;
+            ClearReceivedText();
+            UpdateTextReadModeUi();
+            string message = "TEXT READ MODE: " + (legacy ? "A - V2.1" : "B - Fresh capture") +
+                ". Only text query ordering changes; FPGA and BER are unchanged.";
+            AddLog(message);
+            AddMimoLog(message);
+            return true;
+        }
+
+        private void UpdateTextReadModeUi()
+        {
+            if (legacyTextMenuItem != null) legacyTextMenuItem.Checked = useLegacyTextReader;
+            if (freshTextMenuItem != null) freshTextMenuItem.Checked = !useLegacyTextReader;
+            this.Text = "FSO - WS702 V" + SOFTWARE_VERSION
+               ;
+        }
+
+        private void ResetSweepOutcomes()
+        {
+            receiverSweepOutcomes[0] = SweepOutcome.NotRun;
+            receiverSweepOutcomes[1] = SweepOutcome.NotRun;
+        }
+
+        internal static string DescribeSweepOutcome(SweepOutcome outcome)
+        {
+            switch (outcome)
+            {
+                case SweepOutcome.MeasuredPointApplied: return "measured point applied";
+                case SweepOutcome.FallbackApplied: return "configured fallback; no measured point";
+                case SweepOutcome.Failed: return "failed";
+                case SweepOutcome.Cancelled: return "cancelled";
+                case SweepOutcome.Measuring: return "measuring";
+                default: return "not run";
+            }
+        }
+
+        private string GetDiversitySweepSummary()
+        {
+            return "Sweep results | RX1: " + DescribeSweepOutcome(receiverSweepOutcomes[0]) +
+                " | RX2: " + DescribeSweepOutcome(receiverSweepOutcomes[1]);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            UpdateTextReadModeUi();
+
+            // Start TX now performs automatic local OOK-NRZ tuning at every rate.
+            // All legacy LED-test/sweep buttons are therefore hidden.
+            btnStartTX.Text = "Start";
+            btnLedOn.Visible = false;
+            btnLedOff.Visible = false;
+            btnLedAA.Visible = false;
+            btnLed55.Visible = false;
+
+            // ComboBox setup
+            cmbDataType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCode.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbBitRate.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMod.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            cmbMimoMode.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMimoDataType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMimoCoding.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMimoModulation.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMimoBitRate.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            // Keep the existing Designer item and change only its visible name.
+            // The FPGA protocol remains command 'U' with up to 32 ASCII bytes.
+            int legacyUserTextIndex = cmbDataType.FindStringExact("User Text");
+            if (legacyUserTextIndex >= 0)
+                cmbDataType.Items[legacyUserTextIndex] = "Free Text";
+
+            int mimoUserTextIndex = cmbMimoDataType.FindStringExact("User Text");
+            if (mimoUserTextIndex >= 0)
+                cmbMimoDataType.Items[mimoUserTextIndex] = "Free Text";
+
+            if (cmbDataType.Items.Count > 0) cmbDataType.SelectedIndex = 0;
+            if (cmbCode.Items.Count > 0) cmbCode.SelectedIndex = 0;
+            if (cmbBitRate.Items.Count > 0) cmbBitRate.SelectedIndex = 0;
+            if (cmbMod.Items.Count > 0) cmbMod.SelectedIndex = 0;
+
+            SelectComboItem(cmbMimoMode, "Diversity");
+            if (cmbMimoDataType.Items.Count > 0) cmbMimoDataType.SelectedIndex = 0;
+            if (cmbMimoCoding.Items.Count > 0) cmbMimoCoding.SelectedIndex = 0;
+            if (cmbMimoModulation.Items.Count > 0) cmbMimoModulation.SelectedIndex = 0;
+            if (cmbMimoBitRate.Items.Count > 0) cmbMimoBitRate.SelectedIndex = 0;
+
+            label15.Text = "Rate/link";
+            // RF is armed explicitly; checking it does not immediately transmit.
+            chkRf1Mbps.Checked = false;
+            chkRf1Mbps.Enabled = true;
+
+            lblStatus.Text = "Not connected";
+            lblMimoUsbStatus.Text = "Not connected";
+
+            grpSetting.Enabled = false;
+            grpUserText.Enabled = false;
+            MIMOtxtTxMessage.Enabled = false;
+            grpMimoSettings.Enabled = false;
+
+            btnConnect.Enabled = true;
+            btnClose.Enabled = false;
+            btnMimoConnect.Enabled = true;
+            btnMimoClose.Enabled = false;
+            btnStartTX.Enabled = false;
+            btnStopTX.Enabled = false;
+            Reset_data.Enabled = false;
+            btnLedOn.Enabled = false;
+            btnLedOff.Enabled = false;
+
+            txtLog.Clear();
+            txtLog.ReadOnly = true;
+            txtRxMessage.ReadOnly = true;
+            MMOtxtRxMessage.ReadOnly = true;
+            txtRxMessage.DetectUrls = false;
+            MMOtxtRxMessage.DetectUrls = false;
+            txtMimoLog.Clear();
+            txtMimoLog.ReadOnly = true;
+
+            SetFpgaDataToZero();
+
+            clockTimer.Start();
+            UpdateClock();
+
+            AddLog("V" + SOFTWARE_VERSION + " ready. Please connect FT601 USB.");
+            AddLog("BER uses consecutive checked RX readings. Raw bit/error counters remain totals.");
+            AddLog("BER: Measuring... = first reading; No checked bits = empty interval; Invalid counters = inconsistent data. Lock status is separate.");
+            AddLog("");
+            AddLog("Log");
+            AddLog("V3.3.3 ");
+            AddLog("");
+            AddMimoLog("");
+            AddMimoLog("");
+            AddMimoLog("");
+            AddMimoLog(
+                "V" + SOFTWARE_VERSION +
+                ""
+            );
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            uint numDevices = 0;
+            FTDI.FT_STATUS status;
+
+            status = usb.GetNumberOfDevicesConnected(out numDevices);
+
+            if (status != FTDI.FT_STATUS.FT_OK || numDevices == 0)
+            {
+                lblStatus.Text = "No FT601 found";
+                lblMimoUsbStatus.Text = "No FT601 found";
+                MessageBox.Show("No FT601 found.");
+                return;
+            }
+
+            status = usb.OpenByIndex(0);
+
+            if (status != FTDI.FT_STATUS.FT_OK)
+            {
+                lblStatus.Text = "Open failed: " + status.ToString();
+                lblMimoUsbStatus.Text = "Open failed: " + status.ToString();
+                MessageBox.Show("Open failed: " + status.ToString());
+                return;
+            }
+
+            isConnected = true;
+            txRunning = false;
+
+            lblStatus.Text = "FT601 connected";
+
+            btnConnect.Enabled = false;
+            btnClose.Enabled = true;
+            btnStartTX.Enabled = true;
+            btnStopTX.Enabled = false;
+            Reset_data.Enabled = true;
+            btnLedOn.Enabled = true;
+            btnLedOff.Enabled = true;
+
+            grpSetting.Enabled = true;
+            grpMimoSettings.Enabled = true;
+            UpdateUserTextEnable();
+
+            lblMimoUsbStatus.Text = "FT601 connected";
+            btnMimoConnect.Enabled = false;
+            btnMimoClose.Enabled = true;
+
+            AddLog("FT601 connected.");
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            statusTimer.Stop();
+            CloseUsbDevice();
+            AddLog("USB closed.");
+        }
+
+        private void btnMimoConnect_Click(object sender, EventArgs e)
+        {
+            btnConnect_Click(sender, e);
+
+            if (isConnected)
+                AddMimoLog("FT601 connected.");
+        }
+
+        private void btnMimoClose_Click(object sender, EventArgs e)
+        {
+            btnClose_Click(sender, e);
+            AddMimoLog("USB closed.");
+        }
+
+        private async void btnStartTX_Click(object sender, EventArgs e)
+        {
+            // Do not allow a new stream to start while a stopped/cancelled
+            // sweep is still unwinding from its current acquisition delay.
+            if (phaseSweepRunning)
+                return;
+
+            StopRfSession();
+            if (!CheckUsbConnected())
+                return;
+
+            if (IsMimoTabSelected())
+            {
+                await StartDiversityAsync();
+                return;
+            }
+
+            activeDiversityRun = false;
+            activeSmpRun = false;
+            UpdateTextReadModeUi();
+            lastDisplayedDiversityLink = -1;
+            diversityModeWarningShown = false;
+
+            statusTimer.Stop();
+
+            byte dataCommand;
+            byte codeCommand;
+            byte bitRateCommand;
+            byte modCommand;
+
+            if (!TryGetDataCommand(out dataCommand))
+                return;
+
+            if (!TryGetCodeCommand(out codeCommand))
+                return;
+
+            if (!TryGetBitRateCommand(out bitRateCommand))
+                return;
+
+            if (!TryGetModCommand(out modCommand))
+                return;
+
+            if (IsFreeTextSelected() && !ValidateUserTextInput(txtTxMessage))
+                return;
+
+            ClearReceivedText();
+            ResetSweepOutcomes();
+
+            SetFpgaDataToZero();
+
+            byte[] commandPacket =
+            {
+                dataCommand,
+                codeCommand,
+                bitRateCommand,
+                modCommand
+            };
+
+            // Reset FPGA command state first.
+            // This keeps the FPGA in a clean state before every new run.
+            SendUsbCommandNoEcho(
+                new byte[] { (byte)'Z', 0x00, 0x00, 0x00 },
+                "FPGA RESET BEFORE START"
+            );
+
+            Thread.Sleep(30);
+
+            if (!SendUsbCommandNoEcho(
+                new byte[] { (byte)'I', MIMO_MODE_SISO, 0x00, 0x00 },
+                "SET SISO MODE"))
+            {
+                return;
+            }
+
+            Thread.Sleep(10);
+
+            if (IsFreeTextSelected())
+            {
+                if (!SendUserTextToFpga(txtTxMessage.Text))
+                {
+                    MessageBox.Show("Could not send Free Text to FPGA.");
+                    return;
+                }
+
+                Thread.Sleep(30);
+            }
+
+            // Warn if the selected mode is above the measured stable RX/status limit.
+            // TX is still allowed, but RX BER/status may show unsupported or unstable.
+            if (!IsWithinMeasuredRxLimit())
+            {
+                AddLog("WARNING: Selected mode is above measured stable RX limit. " +
+                       "TX is allowed, but RX/status BER may be unsupported or unstable.");
+            }
+
+            // Start TX without waiting for echo.
+            // Normal FPGA commands are write-only in the new baseline.
+            bool pass = SendUsbCommandNoEcho(commandPacket, "START");
+
+            if (!pass)
+                return;
+
+            txRunning = true;
+
+            btnStartTX.Enabled = false;
+            btnStopTX.Enabled = true;
+
+            grpSetting.Enabled = false;
+            grpUserText.Enabled = false;
+            MIMOtxtTxMessage.Enabled = false;
+            grpMimoSettings.Enabled = false;
+
+            double lineRateMbps = GetSelectedLineRateMbps();
+            double payloadRateMbps = CalculatePayloadRate(lineRateMbps);
+
+            lblThroughput.Text =
+                payloadRateMbps.ToString("0.000", CultureInfo.InvariantCulture) +
+                " Mbps";
+
+            lblStatus.Text = "TX running";
+
+            // This is a readable description of the one START command above,
+            // not a second transmission.
+            AddLog("Active configuration: " +
+                   GetSelectedDataDescription() + " / " +
+                   cmbCode.Text + " / " +
+                   cmbMod.Text + " / " +
+                   cmbBitRate.Text);
+
+            // Every OOK-NRZ Start performs a small local calibration around
+            // the measured default. Low rates test -1/0/+1 clock ticks;
+            // 25/50 Mbps test -2/-1/0/+1/+2 clock ticks.
+            if (cmbMod.Text == "OOK-NRZ")
+            {
+                switch (cmbBitRate.Text)
+                {
+                    case "1 Mbps":
+                        await RunNrzSweepAsync("1 Mbps", 250, 127, 0, 1);
+                        break;
+
+                    case "2 Mbps":
+                        await RunNrzSweepAsync("2 Mbps", 125, 64, 0, 1);
+                        break;
+
+                    case "5 Mbps":
+                        await RunNrzSweepAsync("5 Mbps", 50, 28, 0, 1);
+                        break;
+
+                    case "10 Mbps":
+                        await RunNrzSweepAsync("10 Mbps", 25, 18, 0, 1);
+                        break;
+
+                    case "25 Mbps":
+                        await RunNrzSweepAsync("25 Mbps", 10, 8, 1, 2);
+                        break;
+
+                    case "50 Mbps":
+                        await RunNrzSweepAsync("50 Mbps", 5, 2, 3, 2);
+                        break;
+
+                    default:
+                        statusTimer.Start();
+                        break;
+                }
+            }
+            else
+            {
+                statusTimer.Start();
+            }
+        }
+
+        private bool CheckMimoFirmware(bool smp, out string reason)
+        {
+            // Read-only preflight: incompatible firmware sees no reset, mode or START.
+            try
+            {
+                uint word;
+                reason = "RX2 firmware interface unavailable";
+                if (!ReadStatusWordRaw(34, out word) || IsUnsupportedStatusWord(word, 34))
+                    return false;
+                if (smp)
+                {
+                    reason = "SMP1 FPGA image required (ID37 capability)";
+                    if (!ReadStatusWordRaw(37, out word) || word != SMP_FIRMWARE)
+                        return false;
+                    reason = "TXF1 completed-frame counter interface required";
+                    if (!ReadStatusWordRaw(35, out word) || word != TX_FRAME_FIRMWARE)
+                        return false;
+                }
+                reason = "";
+                return true;
+            }
+            catch (Exception ex)
+            {
+                reason = "Firmware check transport exception: " + ex.Message;
+                return false;
+            }
+        }
+
+        private async Task StartDiversityAsync()
+        {
+            StopRfSession();
+            bool smp = cmbMimoMode.Text == "Spatial multiplexing" || cmbMimoMode.Text == "SMP";
+            if (!smp && cmbMimoMode.Text != "Diversity")
+            {
+                MessageBox.Show("Select Diversity or Spatial multiplexing.");
+                return;
+            }
+            string modeName = smp ? "SMP" : "DIV";
+            byte mode = smp ? MIMO_MODE_SMP : MIMO_MODE_DIVERSITY;
+            if (cmbMimoModulation.Text != "OOK-NRZ")
+            {
+                MessageBox.Show(modeName + " currently supports OOK-NRZ only.",
+                    "Unsupported modulation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            byte dataCommand, codeCommand, bitRateCommand, modCommand;
+            if (!TryGetMimoCommandSet(out dataCommand, out codeCommand,
+                out bitRateCommand, out modCommand)) return;
+            if (IsMimoFreeTextSelected() && !ValidateUserTextInput(MIMOtxtTxMessage)) return;
+            // Snapshot the exact source before USB commands pump UI events.
+            bool freeTextRun = dataCommand == (byte)'U';
+            string runText = MIMOtxtTxMessage.Text;
+
+            string firmwareReason;
+            if (!CheckMimoFirmware(smp, out firmwareReason))
+            {
+                lblStatus.Text = modeName + " start cancelled";
+                lblMimoUsbStatus.Text = firmwareReason;
+                AddMimoLog(modeName + " start cancelled before mode/start: " + firmwareReason);
+                MessageBox.Show(firmwareReason + ". Load the matching FPGA image and try again.",
+                    modeName + " firmware", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ClearReceivedText();
+            ResetSweepOutcomes();
+            statusTimer.Stop();
+            SetFpgaDataToZero();
+            if (!SendUsbCommandNoEcho(new byte[] { (byte)'Z', 0, 0, 0 },
+                "FPGA RESET BEFORE " + modeName + " START")) return;
+            Thread.Sleep(30);
+            if (freeTextRun)
+            {
+                // Upload one unsplit circular source; odd lengths wrap in the FPGA.
+                if (!SendUserTextToFpga(runText, true))
+                {
+                    MessageBox.Show("Could not send " + modeName + " Free Text to FPGA.");
+                    return;
+                }
+                Thread.Sleep(30);
+            }
+            if (!SendUsbCommandNoEcho(new byte[] { (byte)'I', mode, 0, 0 },
+                "SET " + modeName + " MODE")) return;
+            Thread.Sleep(10);
+            if (!SendUsbCommandNoEcho(new byte[] { dataCommand, codeCommand, bitRateCommand, modCommand },
+                modeName + " START")) return;
+
+            txRunning = true;
+            activeDiversityRun = !smp;
+            activeSmpRun = smp;
+            BeginRfMimoSession(dataCommand, runText);
+            UpdateTextReadModeUi();
+            lastDisplayedDiversityLink = -1;
+            diversityModeWarningShown = false;
+            btnStartTX.Enabled = false;
+            btnStopTX.Enabled = true;
+            grpSetting.Enabled = false;
+            grpMimoSettings.Enabled = false;
+            grpUserText.Enabled = false;
+            MIMOtxtTxMessage.Enabled = false;
+            label11.Text = smp ? "TX1 bits:" : "TX raw bits:";
+            label13.Text = smp ? "Payload/link:" : "Payload Rate:";
+            double payloadRate = CalculateMimoPayloadRate(GetMimoLineRateMbps());
+            lblThroughput.Text = payloadRate.ToString("0.000", CultureInfo.InvariantCulture) +
+                (smp ? " Mbps/link" : " Mbps");
+            lblStatus.Text = modeName + " TX running";
+            lblMimoUsbStatus.Text = modeName + " running / tuning RX1 and RX2";
+            AddMimoLog("============================================================");
+            AddMimoLog(modeName + " START: " + GetMimoDataDescription() + " / " +
+                cmbMimoCoding.Text + " / " + cmbMimoModulation.Text + " / " +
+                cmbMimoBitRate.Text + (smp ? " PER LINK" : ""));
+            AddMimoLog(smp
+                ? "TX1 carries source byte n, TX2 byte n+1. Both received lanes are required; Output is actual paired RX bytes. Raw TXF1 remains per link."
+                : "TX2 is an exact copy of the final TX1 waveform.");
+            if (smp)
+                AddMimoLog("Configured aggregate payload capacity = " +
+                    (2 * payloadRate).ToString("0.000", CultureInfo.InvariantCulture) +
+                    " Mbps (capacity estimate, not measured delivery).");
+            AddMimoLog("Automatic independent sweeps: RX1, then RX2.");
+            await RunDiversityAutoSweepsAsync(cmbMimoBitRate.Text);
+        }
+
+        private async Task RunDiversityAutoSweepsAsync(string rateText)
+        {
+            int ticks;
+            int centerPhase;
+            int centerDelay;
+            int radius;
+
+            switch (rateText)
+            {
+                case "1 Mbps": ticks = 250; centerPhase = 127; centerDelay = 0; radius = 1; break;
+                case "2 Mbps": ticks = 125; centerPhase = 64; centerDelay = 0; radius = 1; break;
+                case "5 Mbps": ticks = 50; centerPhase = 28; centerDelay = 0; radius = 1; break;
+                case "10 Mbps": ticks = 25; centerPhase = 18; centerDelay = 0; radius = 1; break;
+                case "25 Mbps": ticks = 10; centerPhase = 8; centerDelay = 1; radius = 2; break;
+                case "50 Mbps": ticks = 5; centerPhase = 2; centerDelay = 3; radius = 2; break;
+                default:
+                    statusTimer.Start();
+                    return;
+            }
+
+            await RunNrzSweepAsync(
+                rateText, ticks, centerPhase, centerDelay, radius, 0, false);
+
+            if (!isConnected || !txRunning)
+                return;
+
+            await RunNrzSweepAsync(
+                rateText, ticks, centerPhase, centerDelay, radius, 1, true);
+        }
+
+        private void btnStopTX_Click(object sender, EventArgs e)
+        {
+            StopRfSession();
+            if (!CheckUsbConnected())
+                return;
+
+            bool stoppedMimo = ActiveMimoRun;
+            statusTimer.Stop();
+
+            // Send stop more than once for safety.
+            SendUsbCommandNoEcho(
+                new byte[] { (byte)'X', 0x00, 0x00, 0x00 },
+                "STOP 1"
+            );
+
+            Thread.Sleep(20);
+
+            SendUsbCommandNoEcho(
+                new byte[] { (byte)'X', 0x00, 0x00, 0x00 },
+                "STOP 2"
+            );
+
+            Thread.Sleep(20);
+
+            // Full FPGA soft reset after stop.
+            SendUsbCommandNoEcho(
+                new byte[] { (byte)'Z', 0x00, 0x00, 0x00 },
+                "FPGA RESET AFTER STOP"
+            );
+
+            txRunning = false;
+            activeDiversityRun = false;
+            activeSmpRun = false;
+            UpdateTextReadModeUi();
+            ClearReceivedText();
+            lastDisplayedDiversityLink = -1;
+            diversityModeWarningShown = false;
+
+            // If Stop was pressed during an automatic sweep, Start is restored
+            // by the sweep's finally block after the pending delay exits.
+            btnStartTX.Enabled = !phaseSweepRunning;
+            btnStopTX.Enabled = false;
+            btnClose.Enabled = isConnected;
+            btnMimoClose.Enabled = isConnected;
+
+            grpSetting.Enabled = true;
+            grpMimoSettings.Enabled = true;
+            UpdateUserTextEnable();
+
+            SetFpgaDataToZero();
+
+            lblStatus.Text = "Stopped and FPGA reset";
+            AddLog("Stop + FPGA reset command sent.");
+
+            if (stoppedMimo)
+            {
+                lblMimoUsbStatus.Text = "Stopped";
+                AddMimoLog("Stop + FPGA reset command sent.");
+            }
+        }
+
+        private void Reset_data_Click(object sender, EventArgs e)
+        {
+            StopRfSession();
+            if (!CheckUsbConnected())
+                return;
+
+            statusTimer.Stop();
+
+            SendUsbCommandNoEcho(
+                new byte[] { (byte)'Z', 0x00, 0x00, 0x00 },
+                "FPGA RESET"
+            );
+
+            txRunning = false;
+            activeDiversityRun = false;
+            activeSmpRun = false;
+            UpdateTextReadModeUi();
+            ClearReceivedText();
+            lastDisplayedDiversityLink = -1;
+            diversityModeWarningShown = false;
+
+            btnStartTX.Enabled = true;
+            btnStopTX.Enabled = false;
+
+            grpSetting.Enabled = true;
+            grpMimoSettings.Enabled = true;
+            UpdateUserTextEnable();
+
+            SetFpgaDataToZero();
+            ClearReceivedText();
+
+            lblStatus.Text = "FPGA reset sent";
+            lblMimoUsbStatus.Text = "FPGA reset sent";
+            AddLog("FPGA reset sent.");
+        }
+
+        private bool SendUsbPacketAndReadEcho(byte[] txData, string actionName)
+        {
+            if (!CheckUsbConnected())
+                return false;
+
+            if (txData == null || txData.Length != 4)
+            {
+                MessageBox.Show("USB packet must be exactly 4 bytes.");
+                return false;
+            }
+
+            byte[] rxData = new byte[4];
+
+            uint sizeToWrite = 4;
+            uint sizeToRead = 4;
+
+            uint bytesWritten = 0;
+            uint bytesRead = 0;
+
+            FTDI.FT_STATUS status;
+
+            lblStatus.Text = actionName + ": writing " + FormatPacketAscii(txData);
+            Application.DoEvents();
+
+            status = usb.WritePipe(
+                PIPE_OUT,
+                txData,
+                sizeToWrite,
+                ref bytesWritten
+            );
+
+            if (status != FTDI.FT_STATUS.FT_OK)
+            {
+                lblStatus.Text = actionName + " write failed: " + status.ToString();
+                MessageBox.Show("WritePipe failed: " + status.ToString());
+                return false;
+            }
+
+            Thread.Sleep(10);
+
+            status = usb.ReadPipe(
+                PIPE_IN,
+                rxData,
+                sizeToRead,
+                ref bytesRead
+            );
+
+            if (status != FTDI.FT_STATUS.FT_OK)
+            {
+                lblStatus.Text = actionName + " read failed: " + status.ToString();
+                MessageBox.Show("ReadPipe failed: " + status.ToString());
+                return false;
+            }
+
+            bool pass =
+                bytesRead == 4 &&
+                rxData[0] == txData[0] &&
+                rxData[1] == txData[1] &&
+                rxData[2] == txData[2] &&
+                rxData[3] == txData[3];
+
+            string txString = FormatPacketAscii(txData);
+            string rxString = FormatPacketAscii(rxData);
+
+            if (pass)
+            {
+                lblStatus.Text = "PASS | TX=" + txString + " RX=" + rxString;
+                AddLog(actionName + " PASS | TX=" + txString + " RX=" + rxString);
+            }
+            else
+            {
+                lblStatus.Text = "FAIL | TX=" + txString + " RX=" + rxString;
+                AddLog(actionName + " FAIL | TX=" + txString + " RX=" + rxString);
+            }
+
+            return pass;
+        }
+
+        private bool TryGetDataCommand(out byte command)
+        {
+            command = 0x00;
+
+            switch (cmbDataType.Text)
+            {
+                case "PRBS7":
+                    command = (byte)'A';
+                    return true;
+
+                case "PRBS15":
+                    command = (byte)'B';
+                    return true;
+
+                case "ASCII \"S\"":
+                    command = (byte)'C';
+                    return true;
+
+                case "Counter":
+                    command = (byte)'D';
+                    return true;
+
+                case "Free Text":
+                case "User Text": // compatibility with older Designer files
+                    command = (byte)'U';
+                    return true;
+
+                default:
+                    MessageBox.Show("Please select a data type.");
+                    return false;
+            }
+        }
+
+        private bool TryGetCodeCommand(out byte command)
+        {
+            command = 0x00;
+
+            switch (cmbCode.Text)
+            {
+                case "None":
+                    command = (byte)'E';
+                    return true;
+
+                case "CRC-8":
+                    command = (byte)'F';
+                    return true;
+
+                case "Repeat-3":
+                    command = (byte)'Q';
+                    return true;
+
+                case "Hamming-7,4":
+                    command = (byte)'R';
+                    return true;
+
+                default:
+                    MessageBox.Show("Please select coding type.");
+                    return false;
+            }
+        }
+
+        private bool TryGetBitRateCommand(out byte command)
+        {
+            command = 0x00;
+
+            switch (cmbBitRate.Text)
+            {
+                case "1 Mbps":
+                    command = (byte)'K';
+                    return true;
+
+                case "2 Mbps":
+                    command = (byte)'L';
+                    return true;
+
+                case "5 Mbps":
+                    command = (byte)'M';
+                    return true;
+
+                case "10 Mbps":
+                    command = (byte)'N';
+                    return true;
+
+                case "25 Mbps":
+                    command = (byte)'O';
+                    return true;
+
+                case "50 Mbps":
+                    command = (byte)'P';
+                    return true;
+
+                default:
+                    MessageBox.Show("Please select TX bit rate.");
+                    return false;
+            }
+        }
+
+        private bool TryGetModCommand(out byte command)
+        {
+            command = 0x00;
+
+            switch (cmbMod.Text)
+            {
+                case "OOK-NRZ":
+                    command = (byte)'G';
+                    return true;
+
+                case "OOK-RZ":
+                    command = (byte)'H';
+                    return true;
+
+                case "PWM":
+                    command = (byte)'I';
+                    return true;
+
+                case "PPM":
+                    command = (byte)'J';
+                    return true;
+
+                default:
+                    MessageBox.Show("Please select modulation technique.");
+                    return false;
+            }
+        }
+
+        private bool TryGetMimoCommandSet(
+            out byte dataCommand,
+            out byte codeCommand,
+            out byte bitRateCommand,
+            out byte modCommand)
+        {
+            dataCommand = 0;
+            codeCommand = 0;
+            bitRateCommand = 0;
+            modCommand = 0;
+
+            switch (cmbMimoDataType.Text)
+            {
+                case "PRBS7": dataCommand = (byte)'A'; break;
+                case "PRBS15": dataCommand = (byte)'B'; break;
+                case "ASCII \"S\"": dataCommand = (byte)'C'; break;
+                case "Counter": dataCommand = (byte)'D'; break;
+                case "Free Text":
+                case "User Text": dataCommand = (byte)'U'; break;
+                default:
+                    MessageBox.Show("Please select a MIMO data type.");
+                    return false;
+            }
+
+            switch (cmbMimoCoding.Text)
+            {
+                case "None": codeCommand = (byte)'E'; break;
+                case "CRC-8": codeCommand = (byte)'F'; break;
+                case "Repeat-3": codeCommand = (byte)'Q'; break;
+                case "Hamming-7,4": codeCommand = (byte)'R'; break;
+                default:
+                    MessageBox.Show("Please select MIMO coding.");
+                    return false;
+            }
+
+            switch (cmbMimoBitRate.Text)
+            {
+                case "1 Mbps": bitRateCommand = (byte)'K'; break;
+                case "2 Mbps": bitRateCommand = (byte)'L'; break;
+                case "5 Mbps": bitRateCommand = (byte)'M'; break;
+                case "10 Mbps": bitRateCommand = (byte)'N'; break;
+                case "25 Mbps": bitRateCommand = (byte)'O'; break;
+                case "50 Mbps": bitRateCommand = (byte)'P'; break;
+                default:
+                    MessageBox.Show("Please select a MIMO bit rate.");
+                    return false;
+            }
+
+            switch (cmbMimoModulation.Text)
+            {
+                case "OOK-NRZ": modCommand = (byte)'G'; break;
+                case "OOK-RZ": modCommand = (byte)'H'; break;
+                case "PWM": modCommand = (byte)'I'; break;
+                case "PPM": modCommand = (byte)'J'; break;
+                default:
+                    MessageBox.Show("Please select MIMO modulation.");
+                    return false;
+            }
+
+            return true;
+        }
+
+        private bool IsMimoTabSelected()
+        {
+            return tabMain.SelectedTab == tabPageMimo;
+        }
+
+        private bool IsMimoFreeTextSelected()
+        {
+            return cmbMimoDataType.Text == "Free Text" ||
+                   cmbMimoDataType.Text == "User Text";
+        }
+
+        private string GetMimoDataDescription()
+        {
+            if (IsMimoFreeTextSelected())
+                return "Free Text \"" + MIMOtxtTxMessage.Text + "\"";
+
+            return cmbMimoDataType.Text;
+        }
+
+        private double GetMimoLineRateMbps()
+        {
+            switch (cmbMimoBitRate.Text)
+            {
+                case "1 Mbps": return 1.0;
+                case "2 Mbps": return 2.0;
+                case "5 Mbps": return 5.0;
+                case "10 Mbps": return 10.0;
+                case "25 Mbps": return 25.0;
+                case "50 Mbps": return 50.0;
+                default: return 0.0;
+            }
+        }
+
+        private double CalculateMimoPayloadRate(double lineRateMbps)
+        {
+            switch (cmbMimoCoding.Text)
+            {
+                case "None": return lineRateMbps;
+                case "Repeat-3": return lineRateMbps / 3.0;
+                case "CRC-8": return lineRateMbps / 2.0;
+                case "Hamming-7,4": return lineRateMbps * 4.0 / 7.0;
+                default: return 0.0;
+            }
+        }
+
+        private bool CheckUsbConnected()
+        {
+            if (!isConnected || usb == null || !usb.IsOpen)
+            {
+                lblStatus.Text = "USB not connected";
+                lblMimoUsbStatus.Text = "USB not connected";
+                MessageBox.Show("Please connect FT601 USB first.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void SetFpgaDataToZero()
+        {
+            ResetBerBaseline();
+
+            label11.Text = "TX raw bits:";
+            label12.Text = "Rx bits:";
+            label13.Text = "Payload Rate:";
+            lblTotalBits.Text = "0";
+            lblRxBits.Text = "0";
+            lblErrorBits.Text = "0";
+            lblBER.Text = "Measuring...";
+            lblThroughput.Text = "0.000 Mbps";
+        }
+
+        private void UpdateBerDisplay()
+        {
+            lblBER.Text = FormatBerValue(fpgaErrorBits, fpgaRxBits);
+        }
+
+        private bool IsWithinMeasuredRxLimit()
+        {
+            double rate = GetSelectedLineRateMbps();
+
+            switch (cmbMod.Text)
+            {
+                case "OOK-NRZ":
+                    return rate <= 50.0;
+
+                case "OOK-RZ":
+                    return rate <= 10.0;
+
+                case "PWM":
+                case "PPM":
+                    return rate <= 5.0;
+
+                default:
+                    return false;
+            }
+        }
+
+        private double GetSelectedLineRateMbps()
+        {
+            switch (cmbBitRate.Text)
+            {
+                case "1 Mbps":
+                    return 1.0;
+
+                case "2 Mbps":
+                    return 2.0;
+
+                case "5 Mbps":
+                    return 5.0;
+
+                case "10 Mbps":
+                    return 10.0;
+
+                case "25 Mbps":
+                    return 25.0;
+
+                case "50 Mbps":
+                    return 50.0;
+
+                default:
+                    return 0.0;
+            }
+        }
+
+        private double CalculatePayloadRate(double lineRateMbps)
+        {
+            switch (cmbCode.Text)
+            {
+                case "None":
+                    return lineRateMbps;
+
+                case "Repeat-3":
+                    return lineRateMbps / 3.0;
+
+                case "CRC-8":
+                    return lineRateMbps / 2.0;
+
+                case "Hamming-7,4":
+                    return lineRateMbps * 4.0 / 7.0;
+
+                default:
+                    return 0.0;
+            }
+        }
+
+        private void cmbDataType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateUserTextEnable();
+        }
+
+        private void cmbMimoDataType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateUserTextEnable();
+        }
+
+        private void tabMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateUserTextEnable();
+        }
+
+        private void UpdateUserTextEnable()
+        {
+            bool canEdit = isConnected && !txRunning && !phaseSweepRunning;
+            // Inputs are independent; output routing follows the running mode,
+            // never whichever tab happens to be visible.
+            grpUserText.Enabled = true;
+            txtTxMessage.Enabled = canEdit && IsFreeTextSelected();
+            MIMOtxtTxMessage.Enabled = canEdit && IsMimoFreeTextSelected();
+            txtRxMessage.ReadOnly = true;
+            MMOtxtRxMessage.ReadOnly = true;
+        }
+
+        private void ClearRunReceivedText(byte mode)
+        {
+            if (mode == MIMO_MODE_SISO) txtRxMessage.Clear();
+            else MMOtxtRxMessage.Clear();
+        }
+
+        private void ClearReceivedText()
+        {
+            txtRxMessage.Clear();
+            MMOtxtRxMessage.Clear();
+        }
+
+        private bool IsFreeTextSelected()
+        {
+            return cmbDataType.Text == "Free Text" ||
+                   cmbDataType.Text == "User Text";
+        }
+
+        private string GetSelectedDataDescription()
+        {
+            if (IsFreeTextSelected())
+                return "Free Text \"" + txtTxMessage.Text + "\"";
+
+            return cmbDataType.Text;
+        }
+
+        private void clockTimer_Tick(object sender, EventArgs e)
+        {
+            UpdateClock();
+        }
+
+        private void UpdateClock()
+        {
+            lblTime.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+
+        private void AddLog(string message)
+        {
+            txtLog.AppendText(message + Environment.NewLine);
+            txtLog.SelectionStart = txtLog.TextLength;
+            txtLog.ScrollToCaret();
+        }
+
+        private void AddMimoLog(string message)
+        {
+            txtMimoLog.AppendText(message + Environment.NewLine);
+            txtMimoLog.SelectionStart = txtMimoLog.TextLength;
+            txtMimoLog.ScrollToCaret();
+        }
+
+        private string FormatPacketAscii(byte[] data)
+        {
+            StringBuilder ascii = new StringBuilder();
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                byte b = data[i];
+
+                if (b >= 0x20 && b <= 0x7E)
+                    ascii.Append((char)b);
+                else
+                    ascii.Append(".");
+            }
+
+            return ascii.ToString() + " [" + BitConverter.ToString(data) + "]";
+        }
+
+        private void CloseUsbDevice()
+        {
+            StopRfSession();
+            if (chkRf1Mbps.Checked) chkRf1Mbps.Checked = false;
+            statusTimer.Stop();
+
+            try
+            {
+                if (usb != null && usb.IsOpen)
+                {
+                    usb.Close();
+                }
+            }
+            catch
+            {
+                // Ignore close errors
+            }
+
+            isConnected = false;
+            txRunning = false;
+            activeDiversityRun = false;
+            activeSmpRun = false;
+            UpdateTextReadModeUi();
+            ClearReceivedText();
+            lastDisplayedDiversityLink = -1;
+            diversityModeWarningShown = false;
+
+            lblStatus.Text = "Closed";
+
+            btnConnect.Enabled = true;
+            btnClose.Enabled = false;
+            btnMimoConnect.Enabled = true;
+            btnMimoClose.Enabled = false;
+
+            btnStartTX.Enabled = false;
+            btnStopTX.Enabled = false;
+            Reset_data.Enabled = false;
+            btnLedOn.Enabled = false;
+            btnLedOff.Enabled = false;
+
+            grpSetting.Enabled = false;
+            grpUserText.Enabled = false;
+            MIMOtxtTxMessage.Enabled = false;
+            grpMimoSettings.Enabled = false;
+
+            lblMimoUsbStatus.Text = "Closed";
+
+            SetFpgaDataToZero();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DisposeRfBackup();
+            CloseUsbDevice();
+        }
+
+        // Legacy handlers remain because Form1.Designer.cs connects them, but
+        // the buttons are hidden. High-rate tuning is started by Start TX.
+        private void btnLedOn_Click(object sender, EventArgs e)
+        {
+        }
+
+        private async Task RunNrzSweepAsync(
+            string rateText,
+            int ticksPerBit,
+            int centerPhase,
+            int centerDelayBits,
+            int radius,
+            byte receiverLink = 0,
+            bool resumePolling = true)
+        {
+            string rateLabel = rateText.Replace(" Mbps", "M");
+            bool link2 = receiverLink == 1;
+            string receiverName = link2 ? "RX2" : "RX1";
+            string sweepTitle = rateText + " " + receiverName + " Sweep";
+            byte tuneStatusId = link2 ? (byte)34 : (byte)18;
+            byte lockMask = link2 ? (byte)0x20 : (byte)0x02;
+            Action<string> sweepLog = ActiveMimoRun
+                ? new Action<string>(AddMimoLog)
+                : new Action<string>(AddLog);
+
+            if (phaseSweepRunning)
+                return;
+
+            if (!CheckUsbConnected())
+                return;
+
+            // Start TX creates the active stream before calling this method.
+            if (!txRunning)
+                return;
+
+            phaseSweepRunning = true;
+            receiverSweepOutcomes[link2 ? 1 : 0] = SweepOutcome.Measuring;
+            btnLedOn.Enabled = false;
+            btnLedOff.Enabled = false;
+            btnClose.Enabled = false;
+            btnMimoClose.Enabled = false;
+            Reset_data.Enabled = false;
+            statusTimer.Stop();
+            ResetBerBaseline();
+
+            List<PhaseSweepResult> results = new List<PhaseSweepResult>();
+
+            try
+            {
+                sweepLog("============================================================");
+                sweepLog(
+                    receiverName + " " + rateText + " OOK-NRZ sweep started: " +
+                    (radius * 2 + 1).ToString(CultureInfo.InvariantCulture) +
+                    " local positions around phase=" +
+                    centerPhase.ToString(CultureInfo.InvariantCulture) +
+                    " align=" + GetDelayName((byte)centerDelayBits) + "."
+                );
+                sweepLog("Each point requests 150 ms acquisition + 750 ms delay. TX CHECK uses actual snapshot-to-snapshot elapsed time, including USB overhead.");
+                sweepLog(
+                    "Sweep pattern: " +
+                    (ActiveMimoRun ? GetMimoDataDescription() : GetSelectedDataDescription()) +
+                    " / " + (ActiveMimoRun ? cmbMimoCoding.Text : cmbCode.Text) + "."
+                );
+
+                for (int offset = -radius; offset <= radius; offset++)
+                {
+                    // Treat phase and whole-bit history as one continuous sample
+                    // coordinate, so a local step may cross a bit boundary.
+                    int absolutePosition =
+                        centerDelayBits * ticksPerBit + centerPhase + offset;
+
+                    if (absolutePosition < 0)
+                        continue;
+
+                    byte delayBits = (byte)(absolutePosition / ticksPerBit);
+                    byte phase = (byte)(absolutePosition % ticksPerBit);
+                    string alignmentName = GetDelayName((byte)delayBits);
+
+                    // Stop remains available while awaiting measurements.
+                    if (!isConnected || !txRunning)
+                        return;
+
+                    bool sent = SendUsbCommandNoEcho(
+                        new byte[]
+                        {
+                                (byte)'V',
+                                phase,
+                                (byte)delayBits,
+                                receiverLink
+                            },
+                            receiverName + " TUNE phase=" + phase.ToString(CultureInfo.InvariantCulture) +
+                        " align=" + alignmentName +
+                        " offset=" + offset.ToString(CultureInfo.InvariantCulture)
+                    );
+
+                    if (!sent)
+                    {
+                        results.Add(new PhaseSweepResult
+                        {
+                            Phase = phase,
+                            DelayBits = delayBits,
+                            Locked = false,
+                            TestedBits = 0,
+                            Errors = 0
+                        });
+                        continue;
+                    }
+
+                    // The V command restarts the selected stream and clears all
+                    // TX, RX, and payload BER counters in the FPGA.
+                    await Task.Delay(150);
+
+                    if (!isConnected || !txRunning)
+                        return;
+
+                    TxCounterSnapshot startSnapshot;
+                    if (!ReadCounterSnapshot(out startSnapshot) ||
+                        (startSnapshot.Status & 0xFF) != 'R' ||
+                        startSnapshot.ActiveMode != (activeSmpRun ? MIMO_MODE_SMP : activeDiversityRun ? MIMO_MODE_DIVERSITY : MIMO_MODE_SISO) ||
+                        (link2 && (IsUnsupportedStatusWord(startSnapshot.Rx2, 28) ||
+                                   IsUnsupportedStatusWord(startSnapshot.Errors2, 29))))
+                    {
+                        results.Add(new PhaseSweepResult
+                        {
+                            Phase = phase,
+                            DelayBits = delayBits,
+                            Locked = false,
+                            TestedBits = 0,
+                            Errors = 0
+                        });
+                        continue;
+                    }
+
+                    uint startBits = link2 ? startSnapshot.Rx2 : startSnapshot.Rx1;
+                    uint startErrors = link2 ? startSnapshot.Errors2 : startSnapshot.Errors1;
+
+                    await Task.Delay(750);
+
+                    if (!isConnected || !txRunning)
+                        return;
+
+                    // Initialize these because the && chain below may
+                    // short-circuit before every out parameter is assigned.
+                    uint statusWord = 0;
+                    uint endBits = 0;
+                    uint endErrors = 0;
+                    uint tuneWord = 0;
+
+                    TxCounterSnapshot endSnapshot;
+                    bool readOk = ReadCounterSnapshot(out endSnapshot) &&
+                        ReadStatusWordRaw(tuneStatusId, out tuneWord);
+                    if (readOk)
+                    {
+                        statusWord = endSnapshot.Status;
+                        endBits = link2 ? endSnapshot.Rx2 : endSnapshot.Rx1;
+                        endErrors = link2 ? endSnapshot.Errors2 : endSnapshot.Errors1;
+                        readOk = (statusWord & 0xFF) == 'R' &&
+                            (!link2 || (!IsUnsupportedStatusWord(endSnapshot.Rx2, 28) &&
+                                        !IsUnsupportedStatusWord(endSnapshot.Errors2, 29)));
+                    }
+
+                    if (readOk &&
+                        !SameCounterRun(startSnapshot, endSnapshot))
+                    {
+                        // A known reset/firmware boundary invalidates RX deltas
+                        // too. This is not a TX-rate or elapsed-time BER gate.
+                        sweepLog(receiverName + " SWEEP point discarded: FPGA firmware/reset boundary.");
+                        readOk = false;
+                    }
+
+                    if (!readOk)
+                    {
+                        results.Add(new PhaseSweepResult
+                        {
+                            Phase = phase,
+                            DelayBits = delayBits,
+                            Locked = false,
+                            TestedBits = 0,
+                            Errors = 0
+                        });
+                        continue;
+                    }
+
+                    ReportTxTiming(startSnapshot, endSnapshot,
+                        receiverName + " SWEEP phase=" + phase.ToString(CultureInfo.InvariantCulture) +
+                        " align=" + alignmentName, sweepLog, ActiveMimoRun);
+                    // Raw TX remains the same cumulative ID 1 value in the GUI.
+                    lblTotalBits.Text = endSnapshot.Tx.ToString("N0", CultureInfo.InvariantCulture);
+                    byte flags = (byte)((statusWord >> 8) & 0xFF);
+                    bool locked = (flags & lockMask) != 0;
+
+                    // Unsigned subtraction also handles one 32-bit counter
+                    // wrap, although this short sweep is far below overflow.
+                    uint testedBits = unchecked(endBits - startBits);
+                    uint errors = unchecked(endErrors - startErrors);
+
+                    int appliedPhase = (int)(tuneWord & 0x01FF);
+                    byte appliedDelayBits = (byte)((tuneWord >> 9) & 0x03);
+                    bool tuneMatched =
+                        appliedPhase == phase &&
+                        appliedDelayBits == delayBits;
+
+                    // A zero sample count must never be displayed as zero BER.
+                    // Also reject a point when an old/mismatched FPGA image
+                    // did not actually apply the requested tune command.
+                    if (testedBits == 0 || !tuneMatched)
+                        locked = false;
+
+                    PhaseSweepResult result = new PhaseSweepResult
+                    {
+                        Phase = phase,
+                        DelayBits = delayBits,
+                        Locked = locked,
+                        TestedBits = testedBits,
+                        Errors = errors
+                    };
+
+                    results.Add(result);
+
+                    if (!locked)
+                    {
+                        sweepLog(
+                            receiverName + " SWEEP phase=" + phase.ToString(CultureInfo.InvariantCulture) +
+                            " align=" + alignmentName +
+                            " | UNLOCKED | FAIL" +
+                            (!tuneMatched ? " | TUNE MISMATCH" : "") +
+                            " | FPGA phase=" + appliedPhase.ToString(CultureInfo.InvariantCulture) +
+                            " align=" + GetDelayName(appliedDelayBits)
+                        );
+                    }
+                    else
+                    {
+                        sweepLog(
+                            receiverName + " SWEEP phase=" + phase.ToString(CultureInfo.InvariantCulture) +
+                            " align=" + alignmentName +
+                            " | bits=" + testedBits.ToString("N0", CultureInfo.InvariantCulture) +
+                            " | errors=" + errors.ToString("N0", CultureInfo.InvariantCulture) +
+                            " | BER=" + result.Ber.ToString(
+                                "0.000E+00", CultureInfo.InvariantCulture)
+                        );
+
+                        if (!ActiveMimoRun)
+                        {
+                            dataGridView1.Rows.Add(
+                                DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                                rateLabel + " sweep / phase " +
+                                phase.ToString(CultureInfo.InvariantCulture) +
+                                " / " + alignmentName,
+                                result.Ber.ToString("0.000E+00", CultureInfo.InvariantCulture)
+                            );
+                        }
+                    }
+                }
+
+                PhaseSweepResult best = ChooseBestSweepPoint(results);
+
+                if (best == null)
+                {
+                    // Restore the configured center, not a point validated by
+                    // this sweep. A fallback must never be reported as success.
+                    byte fallbackPhase = (byte)centerPhase;
+                    byte fallbackDelay = (byte)centerDelayBits;
+
+                    bool fallbackSent = SendUsbCommandNoEcho(
+                        new byte[]
+                        {
+                            (byte)'V',
+                            fallbackPhase,
+                            fallbackDelay,
+                            receiverLink
+                        },
+                        "APPLY " + receiverName + " FALLBACK TUNE"
+                    );
+
+                    if (!fallbackSent)
+                        throw new InvalidOperationException(
+                            "Could not apply the fallback RX tune setting.");
+
+                    await Task.Delay(100);
+                    if (!isConnected || !txRunning)
+                    {
+                        receiverSweepOutcomes[link2 ? 1 : 0] = SweepOutcome.Cancelled;
+                        return;
+                    }
+                    receiverSweepOutcomes[link2 ? 1 : 0] = SweepOutcome.FallbackApplied;
+
+                    lblStatus.Text =
+                        rateLabel + " fallback: phase " +
+                        fallbackPhase.ToString(CultureInfo.InvariantCulture) +
+                        " / " + GetDelayName(fallbackDelay);
+
+                    sweepLog(
+                        receiverName + " " + rateText +
+                        " sweep found no locked point; restored phase=" +
+                        fallbackPhase.ToString(CultureInfo.InvariantCulture) +
+                        " align=" + GetDelayName(fallbackDelay) + "."
+                    );
+                    showSweepWarning(
+                        "No locked " + rateText + " sampling point was found for " +
+                        receiverName + ". Check receiver bandwidth, comparator threshold, " +
+                        "and signal level. The configured fallback was applied; " +
+                        "this sweep did not verify it.",
+                        sweepTitle
+                    );
+                }
+                else
+                {
+                    string bestAlignment = GetDelayName(best.DelayBits);
+
+                    // Leave the FPGA running at the selected point. This V command
+                    // also resets the counters for a clean long-duration BER test.
+                    bool bestSent = SendUsbCommandNoEcho(
+                        new byte[]
+                        {
+                            (byte)'V',
+                            best.Phase,
+                            best.DelayBits,
+                            receiverLink
+                        },
+                        "APPLY BEST " + receiverName + " TUNE"
+                    );
+
+                    if (!bestSent)
+                        throw new InvalidOperationException(
+                            "Could not apply the selected best RX tune setting.");
+
+                    await Task.Delay(100);
+                    if (!isConnected || !txRunning)
+                    {
+                        receiverSweepOutcomes[link2 ? 1 : 0] = SweepOutcome.Cancelled;
+                        return;
+                    }
+                    receiverSweepOutcomes[link2 ? 1 : 0] = SweepOutcome.MeasuredPointApplied;
+
+                    lblStatus.Text =
+                        rateLabel + " best: phase " +
+                        best.Phase.ToString(CultureInfo.InvariantCulture) +
+                        " / " + bestAlignment +
+                        " / BER=" + best.Ber.ToString(
+                            "0.000E+00", CultureInfo.InvariantCulture);
+
+                    sweepLog("------------------------------------------------------------");
+                    sweepLog(
+                        receiverName + " BEST phase=" + best.Phase.ToString(CultureInfo.InvariantCulture) +
+                        " align=" + bestAlignment +
+                        " | bits=" + best.TestedBits.ToString("N0", CultureInfo.InvariantCulture) +
+                        " | errors=" + best.Errors.ToString("N0", CultureInfo.InvariantCulture) +
+                        " | BER=" + best.Ber.ToString(
+                            "0.000E+00", CultureInfo.InvariantCulture)
+                    );
+                    sweepLog(receiverName + " best point applied.");
+                }
+            }
+            catch (Exception ex)
+            {
+                receiverSweepOutcomes[link2 ? 1 : 0] =
+                    (!isConnected || !txRunning) ? SweepOutcome.Cancelled : SweepOutcome.Failed;
+                lblStatus.Text = rateLabel + " sweep exception: " + ex.Message;
+                sweepLog(receiverName + " " + rateText + " sweep exception: " + ex.Message);
+            }
+            finally
+            {
+                if (receiverSweepOutcomes[link2 ? 1 : 0] == SweepOutcome.Measuring)
+                    receiverSweepOutcomes[link2 ? 1 : 0] =
+                        (!isConnected || !txRunning) ? SweepOutcome.Cancelled : SweepOutcome.Failed;
+                phaseSweepRunning = false;
+
+                bool restoreUi =
+                    resumePolling || !isConnected || !txRunning;
+
+                if (restoreUi && !IsDisposed && !Disposing)
+                {
+                    btnStartTX.Enabled = isConnected && !txRunning;
+                    btnClose.Enabled = isConnected;
+                    btnMimoClose.Enabled = isConnected;
+                    Reset_data.Enabled = isConnected;
+                    btnStopTX.Enabled = isConnected && txRunning;
+                    grpSetting.Enabled = isConnected && !txRunning;
+                    grpMimoSettings.Enabled = isConnected && !txRunning;
+                    UpdateUserTextEnable();
+
+                    if (isConnected && txRunning)
+                    {
+                        if (ActiveMimoRun)
+                        {
+                            lblMimoUsbStatus.Text = GetDiversitySweepSummary();
+                            AddMimoLog(GetDiversitySweepSummary());
+                            AddMimoLog("Polling resumed. These are sweep outcomes, not live lock confirmation; " +
+                                "check RX CHECK POLL for current RX2 lock and counted bits.");
+                        }
+
+                        statusTimer.Start();
+                    }
+                }
+            }
+        }
+
+        private bool SelectComboItem(ComboBox combo, string itemText)
+        {
+            int index = combo.FindStringExact(itemText);
+
+            if (index < 0)
+                return false;
+
+            combo.SelectedIndex = index;
+            return true;
+        }
+
+        private string GetDelayName(byte delayBits)
+        {
+            switch (delayBits)
+            {
+                case 0: return "CURRENT";
+                case 1: return "PREVIOUS-1";
+                case 2: return "PREVIOUS-2";
+                case 3: return "PREVIOUS-3";
+                default:
+                    return "DELAY-" +
+               delayBits.ToString(CultureInfo.InvariantCulture);
+            }
+        }
+
+        private PhaseSweepResult ChooseBestSweepPoint(
+            List<PhaseSweepResult> results)
+        {
+            // Results are ordered by increasing local absolute sample offset.
+            // This remains contiguous when the phase wraps into the next
+            // whole-bit delay. Select the center of the longest zero-error eye.
+            int bestRunStart = -1;
+            int bestRunLength = 0;
+            int runStart = -1;
+
+            for (int i = 0; i <= results.Count; i++)
+            {
+                bool zeroErrorPoint =
+                    i < results.Count &&
+                    results[i].Locked &&
+                    results[i].TestedBits != 0 &&
+                    results[i].Errors == 0;
+
+                if (zeroErrorPoint)
+                {
+                    if (runStart < 0)
+                        runStart = i;
+                }
+                else if (runStart >= 0)
+                {
+                    int runLength = i - runStart;
+
+                    if (runLength > bestRunLength)
+                    {
+                        bestRunStart = runStart;
+                        bestRunLength = runLength;
+                    }
+
+                    runStart = -1;
+                }
+            }
+
+            if (bestRunLength > 0)
+            {
+                int centerIndex = bestRunStart + ((bestRunLength - 1) / 2);
+                return results[centerIndex];
+            }
+
+            // If no point is error-free, use the lowest measured raw BER.
+            // Prefer the point with more tested bits when BER values are equal.
+            PhaseSweepResult best = null;
+
+            for (int i = 0; i < results.Count; i++)
+            {
+                PhaseSweepResult candidate = results[i];
+
+                if (!candidate.Locked || candidate.TestedBits == 0)
+                    continue;
+
+                if (best == null ||
+                    candidate.Ber < best.Ber ||
+                    (candidate.Ber == best.Ber &&
+                     candidate.TestedBits > best.TestedBits))
+                {
+                    best = candidate;
+                }
+            }
+
+            return best;
+        }
+
+        private void btnLedOff_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnLedAA_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnLed55_Click(object sender, EventArgs e)
+        {
+        }
+
+        private bool SendUsbCommandNoEcho(byte[] txData, string actionName)
+        {
+            if (!isConnected || usb == null || !usb.IsOpen)
+                return false;
+
+            if (txData == null || txData.Length != 4)
+                return false;
+
+            if (usbBusy)
+            {
+                AddLog(actionName + " skipped: USB busy");
+                return false;
+            }
+
+            // Reset commands and tuning can clear BOTH receivers' counters.
+            // Never subtract across one of those counter-reset boundaries.
+            switch ((char)txData[0])
+            {
+                case 'A':
+                case 'B':
+                case 'C':
+                case 'D':
+                case 'U':
+                case 'V':
+                case 'Z':
+                case 'X':
+                case 'S':
+                case 'I':
+                    ResetBerBaseline();
+                    break;
+            }
+
+            usbBusy = true;
+
+            try
+            {
+                uint sizeToWrite = 4;
+                uint bytesWritten = 0;
+
+                FTDI.FT_STATUS status;
+
+                status = usb.WritePipe(
+                    PIPE_OUT,
+                    txData,
+                    sizeToWrite,
+                    ref bytesWritten
+                );
+
+                if (status != FTDI.FT_STATUS.FT_OK || bytesWritten != 4)
+                {
+                    AddLog(actionName + " write-only failed: " + status.ToString());
+                    return false;
+                }
+
+                AddLog(actionName + " SENT | TX=" + FormatPacketAscii(txData));
+                return true;
+            }
+            catch (Exception ex)
+            {
+                AddLog(actionName + " exception: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                usbBusy = false;
+            }
+        }
+
+        private void statusTimer_Tick(object sender, EventArgs e)
+        {
+            if (phaseSweepRunning)
+                return;
+
+            if (activeSmpRun)
+                RequestSmpStatus();
+            else if (activeDiversityRun)
+                RequestDiversityStatus();
+            else
+                RequestFpgaStatus();
+        }
+
+        private void RequestSmpStatus()
+        {
+            if (!isConnected || usb == null || !usb.IsOpen || !txRunning ||
+                !activeSmpRun || usbBusy) return;
+            usbBusy = true;
+            try
+            {
+                TxCounterSnapshot snapshot;
+                if (!ReadCounterSnapshot(out snapshot) ||
+                    IsUnsupportedStatusWord(snapshot.Rx2, 28) ||
+                    IsUnsupportedStatusWord(snapshot.Errors2, 29) ||
+                    !PrepareBerSnapshot(snapshot, MIMO_MODE_SMP))
+                {
+                    ResetBerBaseline();
+                    MMOtxtRxMessage.Text = "[SMP delivery incomplete: status/mode unavailable]";
+                    lblMimoUsbStatus.Text = "SMP delivery incomplete: status/mode unavailable";
+                    return;
+                }
+                UpdateTxTiming(snapshot);
+                byte flags = (byte)(snapshot.Status >> 8);
+                bool locked1 = (flags & 0x02) != 0;
+                bool locked2 = (flags & 0x20) != 0;
+                uint bits1, errors1, bits2, errors2;
+                bool ready1 = rx1BerCounter.TryGetDelta(snapshot.Rx1, snapshot.Errors1,
+                    out bits1, out errors1);
+                bool ready2 = rx2BerCounter.TryGetDelta(snapshot.Rx2, snapshot.Errors2,
+                    out bits2, out errors2);
+                ObserveRfSnapshot(snapshot, ready1, bits1, errors1, ready2, bits2, errors2);
+                ulong bits = (ulong)bits1 + bits2;
+                ulong errors = (ulong)errors1 + errors2;
+                string ber1 = FormatIntervalBer(ready1, errors1, bits1);
+                string ber2 = FormatIntervalBer(ready2, errors2, bits2);
+                string aber = FormatCombinedIntervalBer(ready1, errors1, bits1,
+                    ready2, errors2, bits2);
+                // ABER is weighted line BER, even if only one receiver counted bits.
+                // Delivery status separately prevents interpreting that as complete SMP.
+                bool bothCounting = ready1 && ready2 && bits1 != 0 && bits2 != 0 &&
+                    errors1 <= bits1 && errors2 <= bits2;
+                string delivery = !locked1 || !locked2
+                    ? "INCOMPLETE: missing lane"
+                    : !ready1 || !ready2 ? "collecting interval baseline"
+                    : errors1 > bits1 || errors2 > bits2 ? "INCOMPLETE: invalid counters"
+                    : !bothCounting ? "INCOMPLETE: lane has no counted bits"
+                    : "both lanes counting";
+                AddMeasuredMimoRow(snapshot, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                    "SMP / " + RfOutputForRow("paired RX") + " / per-link line rate / " + delivery + " / interval BER",
+                    ber1, ber2, aber, RfBerForRow());
+                if (dgvMimoBer.Rows.Count > 0)
+                    dgvMimoBer.FirstDisplayedScrollingRowIndex = dgvMimoBer.Rows.Count - 1;
+                fpgaRxBits = bits;
+                fpgaErrorBits = errors;
+                label11.Text = "TX1 bits:";
+                label12.Text = "RX sum bits:";
+                label13.Text = "Payload/link:";
+                lblTotalBits.Text = snapshot.Tx.ToString("N0", CultureInfo.InvariantCulture);
+                lblRxBits.Text = ((ulong)snapshot.Rx1 + snapshot.Rx2).ToString("N0", CultureInfo.InvariantCulture);
+                lblErrorBits.Text = ((ulong)snapshot.Errors1 + snapshot.Errors2).ToString("N0", CultureInfo.InvariantCulture);
+                lblBER.Text = aber;
+                lblThroughput.Text = CalculateMimoPayloadRate(SpeedCodeToMbps((byte)(snapshot.Status >> 16)))
+                    .ToString("0.000", CultureInfo.InvariantCulture) + " Mbps/link";
+                lblStatus.Text = "SMP | " + delivery + " | BER1=" + ber1 + " | BER2=" + ber2 + " | weighted ABER=" + aber;
+                lblMimoUsbStatus.Text = "SMP | " + delivery +
+                    " | RX1=" + (locked1 ? "LOCKED" : "UNLOCKED") +
+                    " | RX2=" + (locked2 ? "LOCKED" : "UNLOCKED");
+
+                if (IsMimoFreeTextSelected())
+                {
+                    if (TryPresentRfText())
+                    {
+                        // RF owns Output only; optical counters continue to poll.
+                    }
+                    else if (!locked1 || !locked2)
+                        MMOtxtRxMessage.Text = "[SMP delivery incomplete: both receivers required]";
+                    else
+                    {
+                        byte[] bytes;
+                        string reason;
+                        if (TryReadSmpRxText(snapshot.ModeEpoch >> 2, out bytes, out reason))
+                        {
+                            MMOtxtRxMessage.Text = FormatVisibleReceivedText(bytes, bytes.Length);
+                            AddMimoLog("RX TEXT SMP | 16 contiguous pairs / 32 actual received bytes | raw=" +
+                                BitConverter.ToString(bytes));
+                        }
+                        else
+                        {
+                            MMOtxtRxMessage.Text = "[SMP delivery incomplete: " + reason + "]";
+                            lblMimoUsbStatus.Text = "SMP delivery incomplete: " + reason;
+                            AddMimoLog("RX TEXT SMP | " + reason);
+                        }
+                        // Optional SMP-only instrumentation. Never substitutes for
+                        // RX bytes, changes BER, or invalidates a good text read.
+                        AddMimoLog(ReadSmpCaptureDiagnostics(snapshot.ModeEpoch >> 2));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ResetBerBaseline();
+                MMOtxtRxMessage.Text = "[SMP delivery incomplete: read exception]";
+                lblMimoUsbStatus.Text = "SMP status exception";
+                AddMimoLog("SMP status exception: " + ex.Message);
+            }
+            finally { usbBusy = false; }
+        }
+
+        private void RequestDiversityStatus()
+        {
+            if (!isConnected || usb == null || !usb.IsOpen)
+                return;
+
+            if (!txRunning || !activeDiversityRun)
+                return;
+
+            if (usbBusy)
+                return;
+
+            usbBusy = true;
+
+            try
+            {
+                TxCounterSnapshot snapshot;
+                if (!ReadCounterSnapshot(out snapshot))
+                {
+                    ResetBerBaseline();
+                    lblMimoUsbStatus.Text = "DIV status read failed";
+                    ShowTextReadFailure(true, "USB/status read failed");
+                    return;
+                }
+                uint txBits = snapshot.Tx;
+                uint rx1Bits = snapshot.Rx1;
+                uint rx1Errors = snapshot.Errors1;
+                uint rx2Bits = snapshot.Rx2;
+                uint rx2Errors = snapshot.Errors2;
+                uint statusWord = snapshot.Status;
+
+                // V2.0 and earlier return BAD0xxxx for the new RX2 IDs. Do
+                // not turn those diagnostic words into apparently valid BER.
+                if (IsUnsupportedStatusWord(rx2Bits, 28) ||
+                    IsUnsupportedStatusWord(rx2Errors, 29))
+                {
+                    ResetBerBaseline();
+                    lblMimoUsbStatus.Text = "V2.1 FPGA image required";
+                    ShowTextReadFailure(true, "RX2 status unsupported by FPGA");
+
+                    if (!diversityModeWarningShown)
+                    {
+                        AddMimoLog(
+                            "RX2 status IDs are unsupported. Load the V2.1 " +
+                            "DIV FPGA image before starting Diversity."
+                        );
+                        diversityModeWarningShown = true;
+                    }
+
+                    return;
+                }
+
+                byte header = (byte)(statusWord & 0xFF);
+                byte flags = (byte)((statusWord >> 8) & 0xFF);
+
+                if (header != (byte)'R')
+                {
+                    ResetBerBaseline();
+                    lblMimoUsbStatus.Text = "DIV status header error";
+                    ShowTextReadFailure(true, "invalid FPGA status");
+                    AddMimoLog(
+                        "Status header error: " + statusWord.ToString("X8"));
+                    return;
+                }
+
+                if (!PrepareBerSnapshot(snapshot, MIMO_MODE_DIVERSITY))
+                {
+                    lblMimoUsbStatus.Text = "DIV mode/run mismatch; waiting for a fresh run";
+                    ShowTextReadFailure(true, "mode/run changed; waiting for fresh status");
+                    return;
+                }
+                UpdateTxTiming(snapshot);
+                label11.Text = "TX raw bits:";
+                label13.Text = "Payload Rate:";
+                label12.Text = "RX sum bits:";
+                bool rx1Locked = (flags & 0x02) != 0;
+                bool rx2Locked = (flags & 0x20) != 0;
+                bool diversityActive = (flags & 0x40) != 0;
+                bool selectedRx2 = (flags & 0x80) != 0;
+
+                ulong totalRxBits = (ulong)rx1Bits + (ulong)rx2Bits;
+                ulong totalErrors = (ulong)rx1Errors + (ulong)rx2Errors;
+
+                uint bits1ThisInterval, errors1ThisInterval;
+                uint bits2ThisInterval, errors2ThisInterval;
+                bool ready1 = rx1BerCounter.TryGetDelta(rx1Bits, rx1Errors,
+                    out bits1ThisInterval, out errors1ThisInterval);
+                bool ready2 = rx2BerCounter.TryGetDelta(rx2Bits, rx2Errors,
+                    out bits2ThisInterval, out errors2ThisInterval);
+                ObserveRfSnapshot(snapshot, ready1, bits1ThisInterval, errors1ThisInterval,
+                    ready2, bits2ThisInterval, errors2ThisInterval);
+
+                // Difference each uint BEFORE widening and adding the links.
+                ulong intervalRxBits = (ulong)bits1ThisInterval + bits2ThisInterval;
+                ulong intervalErrors = (ulong)errors1ThisInterval + errors2ThisInterval;
+                string ber1Text = FormatIntervalBer(ready1, errors1ThisInterval, bits1ThisInterval);
+                string ber2Text = FormatIntervalBer(ready2, errors2ThisInterval, bits2ThisInterval);
+                string aberText = FormatCombinedIntervalBer(ready1, errors1ThisInterval,
+                    bits1ThisInterval, ready2, errors2ThisInterval, bits2ThisInterval);
+                string selectedName = selectedRx2 ? "RX2" : "RX1";
+
+                AddMeasuredMimoRow(snapshot,
+                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                    "Diversity / " + RfOutputForRow(selectedName) + " / interval BER",
+                    ber1Text,
+                    ber2Text,
+                    aberText,
+                    RfBerForRow()
+                );
+
+                if (dgvMimoBer.Rows.Count > 0)
+                {
+                    dgvMimoBer.FirstDisplayedScrollingRowIndex =
+                        dgvMimoBer.Rows.Count - 1;
+                }
+
+                // TX is the raw per-link/shared-stream line-bit count from ID 1.
+                // RX/error displays remain cumulative sums of both receivers.
+                // Only BER/ABER and these internal BER operands are interval-based.
+                fpgaRxBits = intervalRxBits;
+                fpgaErrorBits = intervalErrors;
+                lblTotalBits.Text = txBits.ToString(
+                    "N0", CultureInfo.InvariantCulture);
+                lblRxBits.Text = totalRxBits.ToString(
+                    "N0", CultureInfo.InvariantCulture);
+                lblErrorBits.Text = totalErrors.ToString(
+                    "N0", CultureInfo.InvariantCulture);
+                lblBER.Text = aberText;
+
+                lblMimoUsbStatus.Text =
+                    (diversityActive ? "DIV" : "SISO FLAG") +
+                    " | selected=" + selectedName +
+                    " | RX1=" + (rx1Locked ? "LOCKED" : "UNLOCKED") +
+                    " | RX2=" + (rx2Locked ? "LOCKED" : "UNLOCKED");
+
+                lblStatus.Text =
+                    "Diversity | interval BER | selected=" + selectedName +
+                    " | BER1=" + ber1Text +
+                    " | BER2=" + ber2Text +
+                    " | ABER=" + aberText;
+
+                int selectedLink = selectedRx2 ? 2 : 1;
+
+                if (lastDisplayedDiversityLink != selectedLink)
+                {
+                    AddMimoLog(
+                        "Selection output changed to " + selectedName +
+                        " (changes are committed at a frame boundary)."
+                    );
+                    lastDisplayedDiversityLink = selectedLink;
+                }
+
+                if (!diversityActive && !diversityModeWarningShown)
+                {
+                    AddMimoLog(
+                        "WARNING: FPGA status does not report Diversity mode. " +
+                        "Check that the V2.1 FPGA image is loaded."
+                    );
+                    diversityModeWarningShown = true;
+                }
+                else if (diversityActive)
+                {
+                    diversityModeWarningShown = false;
+                }
+
+                RefreshRfAwareDiversityText(snapshot);
+            }
+            catch (Exception ex)
+            {
+                ResetBerBaseline();
+                lblMimoUsbStatus.Text = "DIV status exception";
+                ShowTextReadFailure(true, "USB/status read exception");
+                AddMimoLog("DIV status exception: " + ex.Message);
+            }
+            finally
+            {
+                usbBusy = false;
+            }
+        }
+
+        // A numerical result requires actual checked bits. Lock status is
+        // reported separately; it never hides an otherwise valid interval.
+        internal static string FormatBerValue(ulong errors, ulong bits)
+        {
+            if (errors > bits)
+                return "Invalid counters";
+            if (bits == 0)
+                return "No checked bits";
+
+            double ber = (double)errors / (double)bits;
+            return ber.ToString("0.000E+00", CultureInfo.InvariantCulture);
+        }
+
+        internal static string FormatIntervalBer(bool ready, ulong errors, ulong bits)
+        {
+            return ready ? FormatBerValue(errors, bits) : "Measuring...";
+        }
+
+        internal static string FormatCombinedIntervalBer(
+            bool ready1, uint errors1, uint bits1,
+            bool ready2, uint errors2, uint bits2)
+        {
+            if (!ready1 || !ready2)
+                return "Measuring...";
+            // Check each lane BEFORE adding: another lane's valid exposure
+            // must not hide an impossible error delta. An empty 0/0 lane
+            // adds no exposure; that does not imply successful SMP delivery.
+            if (errors1 > bits1 || errors2 > bits2)
+                return "Invalid counters";
+            return FormatBerValue((ulong)errors1 + errors2, (ulong)bits1 + bits2);
+        }
+
+        private static bool IsUnsupportedStatusWord(uint word, byte statusId)
+        {
+            return word == (0xBAD00000U | (uint)statusId);
+        }
+
+        private void RequestFpgaStatus()
+        {
+            if (!isConnected || usb == null || !usb.IsOpen)
+                return;
+
+            if (!txRunning)
+                return;
+
+            if (usbBusy)
+                return;
+
+            usbBusy = true;
+
+            try
+            {
+                TxCounterSnapshot snapshot;
+                if (!ReadCounterSnapshot(out snapshot))
+                {
+                    ResetBerBaseline();
+                    ShowTextReadFailure(false, "USB/status read failed");
+                    return;
+                }
+                uint txBits = snapshot.Tx;
+                uint rxBits = snapshot.Rx1;
+                uint errorBits = snapshot.Errors1;
+                uint statusWord = snapshot.Status;
+                uint activeTicks;
+                uint lineTxBits = 0;
+                uint lineRxBits = 0;
+                uint lineErrorBits = 0;
+
+                if (!ReadStatusWordRaw(5, out activeTicks))
+                    activeTicks = 0;
+
+                ReadStatusWordRaw(6, out lineTxBits);
+                ReadStatusWordRaw(7, out lineRxBits);
+                ReadStatusWordRaw(8, out lineErrorBits);
+
+                byte header = (byte)(statusWord & 0xFF);
+                byte flags = (byte)((statusWord >> 8) & 0xFF);
+                byte speedCode = (byte)((statusWord >> 16) & 0xFF);
+                byte modCode = (byte)((statusWord >> 24) & 0xFF);
+
+                if (header != (byte)'R')
+                {
+                    ResetBerBaseline();
+                    lblStatus.Text = "Status header error";
+                    ShowTextReadFailure(false, "invalid FPGA status");
+                    AddLog("Status header error: " + statusWord.ToString("X8"));
+                    return;
+                }
+
+                if (!PrepareBerSnapshot(snapshot, MIMO_MODE_SISO))
+                {
+                    lblStatus.Text = "SISO mode/run mismatch; waiting for a fresh run";
+                    ShowTextReadFailure(false, "mode/run changed; waiting for fresh status");
+                    return;
+                }
+                UpdateTxTiming(snapshot);
+                label11.Text = "TX raw bits:";
+                label13.Text = "Payload Rate:";
+                label12.Text = "Rx bits:";
+                bool txEnable = (flags & 0x01) != 0;
+                bool rxLocked = (flags & 0x02) != 0;
+                bool rxSupported = (flags & 0x04) != 0;
+                bool blinkMode = (flags & 0x08) != 0;
+                bool payloadRxSupported = (flags & 0x10) != 0;
+
+                uint bitsThisInterval, errorsThisInterval;
+                bool ready = rx1BerCounter.TryGetDelta(rxBits, errorBits,
+                    out bitsThisInterval, out errorsThisInterval);
+                fpgaRxBits = bitsThisInterval;
+                fpgaErrorBits = errorsThisInterval;
+                string berText = FormatIntervalBer(ready, errorsThisInterval, bitsThisInterval);
+
+                double lineRateMbps = SpeedCodeToMbps(speedCode);
+                double payloadRateMbps = CalculatePayloadRate(lineRateMbps);
+
+                lblTotalBits.Text = txBits.ToString("N0", CultureInfo.InvariantCulture);
+                lblRxBits.Text = rxBits.ToString("N0", CultureInfo.InvariantCulture);
+                lblErrorBits.Text = errorBits.ToString("N0", CultureInfo.InvariantCulture);
+                lblBER.Text = berText;
+
+                string setting =
+                    GetSelectedDataDescription() + " / " +
+                    cmbCode.Text + " / " +
+                    cmbMod.Text + " / " +
+                    cmbBitRate.Text + " / interval BER";
+
+                dataGridView1.Rows.Add(
+                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                    setting,
+                    berText
+                );
+
+                // Keep the newest record visible.
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    dataGridView1.FirstDisplayedScrollingRowIndex =
+                        dataGridView1.Rows.Count - 1;
+                }
+
+                lblThroughput.Text =
+                    payloadRateMbps.ToString("0.000", CultureInfo.InvariantCulture) + " Mbps";
+
+                lblStatus.Text =
+                    "Status OK | BER=latest polling interval" +
+                    " | TX=" + (txEnable ? "ON" : "OFF") +
+                    " | RX=" + (rxLocked ? "LOCKED" : "UNLOCKED") +
+                    " | StableRX=" + (rxSupported ? "YES" : "NO") +
+                    " | PayloadRX=" + (payloadRxSupported ? "YES" : "NO") +
+                    " | LegacyTX=" + lineTxBits.ToString("N0", CultureInfo.InvariantCulture) +
+                    " | LineRX=" + lineRxBits.ToString("N0", CultureInfo.InvariantCulture) +
+                    " | Ticks=" + activeTicks.ToString(CultureInfo.InvariantCulture) +
+                    " | Mod=" + ((char)modCode).ToString();
+
+                LogMeasuredSisoDelivery(snapshot);
+                if (IsFreeTextSelected())
+                    ReadUserTextOutputWithStatus(txtRxMessage, statusWord, false,
+                        snapshot.HasModeEpoch ? (uint?)snapshot.ModeEpoch : null);
+            }
+            catch (Exception ex)
+            {
+                ResetBerBaseline();
+                lblStatus.Text = "Status exception: " + ex.Message;
+                ShowTextReadFailure(false, "USB/status read exception");
+                AddLog("Status exception: " + ex.Message);
+            }
+            finally
+            {
+                usbBusy = false;
+            }
+        }
+
+        private bool ReadStatusWordRaw(byte statusId, out uint word)
+        {
+            word = 0;
+
+            byte[] txData = new byte[] { (byte)'R', 0x00, 0x00, statusId };
+            byte[] rxData = new byte[4];
+
+            uint bytesWritten = 0;
+            uint bytesRead = 0;
+
+            FTDI.FT_STATUS status;
+
+            status = usb.WritePipe(
+                PIPE_OUT,
+                txData,
+                4,
+                ref bytesWritten
+            );
+
+            if (status != FTDI.FT_STATUS.FT_OK || bytesWritten != 4)
+            {
+                AddLog("Status ID " + statusId.ToString() +
+                       " write failed: " + status.ToString());
+                return false;
+            }
+
+            Thread.Sleep(2);
+
+            status = usb.ReadPipe(
+                PIPE_IN,
+                rxData,
+                4,
+                ref bytesRead
+            );
+
+            if (status != FTDI.FT_STATUS.FT_OK || bytesRead != 4)
+            {
+                AddLog("Status ID " + statusId.ToString() +
+                       " read failed: " + status.ToString() +
+                       " bytesRead=" + bytesRead.ToString());
+                return false;
+            }
+
+            word = BitConverter.ToUInt32(rxData, 0);
+            return true;
+        }
+
+        private double SpeedCodeToMbps(byte speedCode)
+        {
+            switch ((char)speedCode)
+            {
+                case 'K': return 1.0;
+                case 'L': return 2.0;
+                case 'M': return 5.0;
+                case 'N': return 10.0;
+                case 'O': return 25.0;
+                case 'P': return 50.0;
+                default: return GetSelectedLineRateMbps();
+            }
+        }
+
+
+
+
+        internal static bool TryEncodeUserText(string message, out byte[] bytes, out string reason)
+        {
+            bytes = null;
+            reason = "";
+            if (String.IsNullOrEmpty(message) || message.Length > 32)
+            {
+                reason = "Please enter 1 to 32 printable ASCII characters.";
+                return false;
+            }
+            bytes = new byte[message.Length];
+            for (int i = 0; i < message.Length; i++)
+            {
+                char c = message[i];
+                if (c < 0x20 || c > 0x7E)
+                {
+                    bytes = null;
+                    reason = "Input accepts printable ASCII (space through ~). " +
+                             "Extended characters are displayed on RX but are not supported for TX input.";
+                    return false;
+                }
+                bytes[i] = (byte)c;
+            }
+            return true; // Preserve leading/trailing spaces; never silently replace bytes.
+        }
+
+        private bool ValidateUserTextInput(TextBoxBase input)
+        {
+            byte[] bytes;
+            string reason;
+            if (TryEncodeUserText(input.Text, out bytes, out reason))
+                return true;
+            MessageBox.Show(reason);
+            input.Focus();
+            return false;
+        }
+
+        private bool SendUserTextToFpga(string message)
+        {
+            return SendUserTextToFpga(message, false);
+        }
+
+        private bool SendUserTextToFpga(string message, bool diversity)
+        {
+            byte[] asciiBytes;
+            string reason;
+            Action<string> log = diversity ? new Action<string>(AddMimoLog) : new Action<string>(AddLog);
+            if (!TryEncodeUserText(message, out asciiBytes, out reason))
+            {
+                log("TEXT INPUT rejected: " + reason);
+                return false;
+            }
+
+            for (int i = 0; i < asciiBytes.Length; i++)
+            {
+                if (!SendUsbCommandNoEcho(
+                    new byte[] { (byte)'W', (byte)i, asciiBytes[i], 0x00 },
+                    "TEXT WRITE " + i.ToString(CultureInfo.InvariantCulture)))
+                    return false;
+                Thread.Sleep(2);
+            }
+
+            if (!SendUsbCommandNoEcho(
+                new byte[] { (byte)'L', (byte)asciiBytes.Length, 0x00, 0x00 },
+                "TEXT LENGTH"))
+                return false;
+
+            // Verify what is stored in FPGA TX memory before START. This is
+            // upload verification only; these bytes NEVER become RX Output.
+            if (usbBusy) return false;
+            usbBusy = true;
+            try
+            {
+                uint lengthWord;
+                byte[] loaded;
+                if (!ReadStatusWordRaw(9, out lengthWord) ||
+                    !TryReadTextBytes(20, out loaded) ||
+                    lengthWord != (uint)asciiBytes.Length)
+                {
+                    log("TEXT UPLOAD verification failed: length/status read.");
+                    return false;
+                }
+                for (int i = 0; i < asciiBytes.Length; i++)
+                {
+                    if (loaded[i] != asciiBytes[i])
+                    {
+                        log("TEXT UPLOAD verification failed at byte " + i.ToString(CultureInfo.InvariantCulture) + ".");
+                        return false;
+                    }
+                }
+                log("Free Text loaded and verified: \"" + message + "\"");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log("TEXT UPLOAD verification exception: " + ex.Message);
+                return false;
+            }
+            finally { usbBusy = false; }
+        }
+
+        private void ShowTextReadFailure(bool mimo, string reason)
+        {
+            if (mimo ? IsMimoFreeTextSelected() : IsFreeTextSelected())
+                (mimo ? MMOtxtRxMessage : txtRxMessage).Text =
+                    "[Text unavailable: " + reason + "]";
+        }
+
+        internal static string GetTextLinkProblem(uint status, bool diversity)
+        {
+            // Use the status already polled; do not add USB requests or resets.
+            // A missing byte capture is NOT evidence that the optical link broke.
+            if ((byte)status != (byte)'R')
+                return "[Text unavailable: invalid FPGA status]";
+            byte flags = (byte)(status >> 8);
+            if ((flags & 0x01) == 0)
+                return "[Text unavailable: transmitter stopped]";
+            if ((flags & 0x14) != 0x14)
+                return "[Text unavailable: decoder unsupported]";
+            bool rx1Locked = (flags & 0x02) != 0;
+            bool rx2Locked = (flags & 0x20) != 0;
+            if (!diversity)
+                return rx1Locked ? null : "[Link broken: RX1 has no lock]";
+            if (!rx1Locked && !rx2Locked)
+                return "[Link broken: neither FSO receiver has lock]";
+            bool selectedRx2 = (flags & 0x80) != 0;
+            if (selectedRx2 ? !rx2Locked : !rx1Locked)
+                return "[Text unavailable: selected " + (selectedRx2 ? "RX2" : "RX1") + " has no lock]";
+            return null;
+        }
+
+        private void ReadUserTextOutputWithStatus(TextBoxBase output, uint status, bool diversity,
+            uint? expectedModeEpoch)
+        {
+            string problem = GetTextLinkProblem(status, diversity);
+            if (problem != null)
+            {
+                // Replace last second's sample; never repeat stale text as new RX.
+                output.Text = problem;
+                if (diversity) AddMimoLog("RX TEXT DIV | " + problem);
+                else AddLog("RX TEXT SISO | " + problem);
+                return;
+            }
+            ReadUserTextOutput(output, expectedModeEpoch);
+        }
+
+        internal static string FormatTextCaptureFailure(string reason)
+        {
+            if (reason != null && (reason.StartsWith("receiving ", StringComparison.Ordinal) ||
+                reason.StartsWith("waiting for ", StringComparison.Ordinal)))
+                return "[Text decoding unavailable: " + reason + "]";
+            return "[Text read failed: " + (reason ?? "unknown reason") + "]";
+        }
+
+        private void ReadUserTextOutput(TextBoxBase output, uint? expectedModeEpoch)
+        {
+            output.Clear(); // Replace, never append an earlier one-second sample.
+            Action<string> log = activeDiversityRun
+                ? new Action<string>(AddMimoLog) : new Action<string>(AddLog);
+            byte[] bytes;
+            string reason;
+            if (!TryReadV23RxText(expectedModeEpoch, out bytes, out reason))
+            {
+                output.Text = FormatTextCaptureFailure(reason);
+                log("RX TEXT V2.3.1 Text Repair TEST " + (activeDiversityRun ? "DIV" : "SISO") + " | " + reason);
+                return;
+            }
+            output.Text = FormatVisibleReceivedText(bytes, bytes.Length);
+            log("RX TEXT V2.3.1 Text Repair TEST " + (activeDiversityRun ? "DIV selected stream" : "SISO") +
+                " | " + bytes.Length.ToString(CultureInfo.InvariantCulture) +
+                "/32 FPGA snapshot bytes | " + reason + " | chronological=" + BitConverter.ToString(bytes));
+        }
+
+        private bool TryReadV23RxText(uint? expectedModeEpoch, out byte[] bytes, out string reason)
+        {
+            bytes = null;
+            reason = "text snapshot read failed";
+            uint firmware, requested;
+            if (!ReadStatusWordRaw(52, out firmware)) return false;
+            if (firmware != TEXT_V23_FIRMWARE)
+            {
+                reason = "matching V2.3.1 Text Repair TEST FPGA required (T231)";
+                return false;
+            }
+            // ID38 came from this poll's existing ID1-frozen group. A stable
+            // old text snapshot can have the requested token after a restart;
+            // stability alone does not prove it belongs to this status poll.
+            // Never infer an epoch from TX counts or issue another USB read.
+            if (!expectedModeEpoch.HasValue)
+            {
+                reason = "poll run epoch unavailable (ID38); waiting for fresh status";
+                return false;
+            }
+            if (!ReadStatusWordRaw(53, out requested)) return false;
+            uint status = 0, token = 0, epoch = 0;
+            bool ready = false;
+            for (int attempt = 0; attempt < 6; attempt++)
+            {
+                if (!ReadStatusWordRaw(54, out status) ||
+                    !ReadStatusWordRaw(55, out token)) return false;
+                if (token == requested && (status & 0xFFFF0100U) == 0x23010100U)
+                {
+                    ready = true;
+                    break;
+                }
+                Thread.Sleep(2);
+            }
+            if (!ready)
+            {
+                reason = "text snapshot handshake timed out";
+                return false;
+            }
+            if ((status & 0x2000U) == 0)
+            {
+                reason = "matching V2.3.1 Text Repair TEST snapshot layout required (newest-byte-first flag missing)";
+                return false;
+            }
+            uint payloadBits, payloadErrors;
+            if (!ReadStatusWordRaw(64, out epoch) ||
+                !ReadStatusWordRaw(65, out payloadBits) ||
+                !ReadStatusWordRaw(66, out payloadErrors)) return false;
+            uint expectedMode = activeDiversityRun ? MIMO_MODE_DIVERSITY : MIMO_MODE_SISO;
+            int count = (int)(status & 0x3FU);
+            if ((epoch & 3U) != expectedMode || count > 32)
+            {
+                reason = "text snapshot mode/count mismatch";
+                return false;
+            }
+            if (epoch != expectedModeEpoch.Value)
+            {
+                reason = "text snapshot run changed since status poll (expected epoch/mode 0x" +
+                    expectedModeEpoch.Value.ToString("X8", CultureInfo.InvariantCulture) +
+                    ", received 0x" + epoch.ToString("X8", CultureInfo.InvariantCulture) +
+                    "); waiting for fresh status";
+                return false;
+            }
+            if ((status & 0xE00U) != 0xE00U)
+            {
+                reason = (status & 0x200U) == 0 ? "Link broken: no locked text receiver" :
+                    "text receiver stopped or unsupported";
+                return false;
+            }
+            if (count == 0)
+            {
+                reason = "no decoded RX bytes in this capture; decoded payload bits=" +
+                    payloadBits.ToString(CultureInfo.InvariantCulture) +
+                    ", decoded errors=" + payloadErrors.ToString(CultureInfo.InvariantCulture) +
+                    ReadIndexedTextTrace(requested, epoch);
+                return false;
+            }
+            byte[] block;
+            if (!TryReadTextBytes(56, out block)) return false;
+            uint finalStatus, finalToken, finalEpoch;
+            if (!ReadStatusWordRaw(54, out finalStatus) ||
+                !ReadStatusWordRaw(55, out finalToken) ||
+                !ReadStatusWordRaw(64, out finalEpoch)) return false;
+            if (finalStatus != status || finalToken != requested || finalEpoch != epoch)
+            {
+                reason = "text snapshot changed during read";
+                return false;
+            }
+            // Only this T231 SISO/DIV bank is newest-byte-first. Keep generic
+            // word unpacking unchanged for uploaded TX memory and SMP payloads.
+            bytes = new byte[count];
+            Array.Copy(block, bytes, count);
+            Array.Reverse(bytes);
+            reason = (count < 32 ? "partial capture; " : "") +
+                "token=" + requested.ToString(CultureInfo.InvariantCulture) +
+                ", decoded payload bits=" + payloadBits.ToString(CultureInfo.InvariantCulture) +
+                ", decoded errors=" + payloadErrors.ToString(CultureInfo.InvariantCulture) +
+                " | native-bank32=" + BitConverter.ToString(block) +
+                ReadIndexedTextTrace(requested, epoch);
+            return true;
+        }
+
+        // Diagnostics never supply RX text or BER. They use the same frozen
+        // capture token and are optional if this T231 image lacks the trace block.
+        private string ReadIndexedTextTrace(uint expectedToken, uint expectedEpoch)
+        {
+            try
+            {
+                uint marker, stages, commits, first, flags, token, epoch;
+                if (!ReadStatusWordRaw(67, out marker))
+                    return " | byte trace unavailable";
+                if (marker != 0x54323350U)
+                    return " | paired FPGA trace not detected (ID67); expected T23P";
+                if (!ReadStatusWordRaw(68, out stages) ||
+                    !ReadStatusWordRaw(69, out commits) ||
+                    !ReadStatusWordRaw(70, out first) ||
+                    !ReadStatusWordRaw(71, out flags) ||
+                    !ReadStatusWordRaw(55, out token) ||
+                    !ReadStatusWordRaw(64, out epoch))
+                    return " | byte trace read failed";
+                if (token != expectedToken || epoch != expectedEpoch)
+                    return " | byte trace discarded: snapshot changed";
+                return " | TX-loaded=0x" + ((stages >> 24) & 255U).ToString("X2") +
+                    " decoded-ref=0x" + ((stages >> 16) & 255U).ToString("X2") +
+                    " decoded-RX=0x" + ((stages >> 8) & 255U).ToString("X2") +
+                    " stored-RX=0x" + (stages & 255U).ToString("X2") +
+                    " commits=" + commits.ToString(CultureInfo.InvariantCulture) +
+                    " first-word=0x" + first.ToString("X8") +
+                    " trace-flags=0x" + flags.ToString("X2") + ReadUsbPatternProbe();
+            }
+            catch (Exception)
+            {
+                // A diagnostic failure must not suppress an already validated
+                // text sample. The normal status read will handle USB recovery.
+                return " | byte trace unavailable";
+            }
+        }
+
+        // Two complementary non-palindromic constants exercise every data-bit
+        // position at both levels. This read-only probe cannot alter RX or BER.
+        private string ReadUsbPatternProbe()
+        {
+            const uint expected72 = 0xA5963CC3U;
+            const uint expected73 = 0x5A69C33CU;
+            try
+            {
+                uint actual72, actual73;
+                if (!ReadStatusWordRaw(72, out actual72) ||
+                    !ReadStatusWordRaw(73, out actual73))
+                    return " | USB pattern probe read failed";
+                if (IsUnsupportedStatusWord(actual72, 72) ||
+                    IsUnsupportedStatusWord(actual73, 73))
+                    return " | USB pattern probe unavailable";
+                bool match = actual72 == expected72 && actual73 == expected73;
+                return " | USB pattern " + (match ? "PASS" : "MISMATCH") +
+                    " ID72=0x" + actual72.ToString("X8") +
+                    " expected=0x" + expected72.ToString("X8") +
+                    " xor=0x" + (actual72 ^ expected72).ToString("X8") +
+                    " ID73=0x" + actual73.ToString("X8") +
+                    " expected=0x" + expected73.ToString("X8") +
+                    " xor=0x" + (actual73 ^ expected73).ToString("X8");
+            }
+            catch (Exception)
+            {
+                return " | USB pattern probe unavailable";
+            }
+        }
+
+        private bool TryReadSmpRxText(uint expectedEpoch, out byte[] bytes, out string reason)
+        {
+            bytes = null;
+            reason = "paired text read failed";
+            uint requestedToken;
+            if (!ReadStatusWordRaw(39, out requestedToken)) return false;
+            // R39 issues a fresh token. R40 freezes all paired data and metadata.
+            // Each capture contains exactly 16 contiguous matching frame IDs.
+            Thread.Sleep(2);
+            for (int attempt = 0; attempt < 10; attempt++)
+            {
+                uint status, token, epoch;
+                if (!ReadStatusWordRaw(40, out status) ||
+                    !ReadStatusWordRaw(41, out token) ||
+                    !ReadStatusWordRaw(51, out epoch)) return false;
+                if (token != requestedToken)
+                {
+                    reason = "waiting for fresh capture token";
+                    Thread.Sleep(2);
+                    continue;
+                }
+                if (epoch != expectedEpoch || ((status >> 3) & 3U) != MIMO_MODE_SMP)
+                {
+                    reason = "FPGA mode/run changed during capture";
+                    return false;
+                }
+                uint count = (status >> 5) & 0x3FU;
+                if (count > 16 || (status & ~0x7FFU) != 0)
+                {
+                    reason = "invalid paired capture status";
+                    return false;
+                }
+                if ((status & 7U) == 7U && count == 16)
+                {
+                    byte[] captured;
+                    uint firstPair;
+                    if (!TryReadTextBytes(42, out captured) ||
+                        !ReadStatusWordRaw(50, out firstPair)) return false;
+                    // Refresh only AFTER every frozen word was read. A reset,
+                    // rearm or lane loss during USB transfer invalidates display.
+                    uint finalStatus, finalToken, finalEpoch, finalFirstPair;
+                    if (!ReadStatusWordRaw(40, out finalStatus) ||
+                        !ReadStatusWordRaw(41, out finalToken) ||
+                        !ReadStatusWordRaw(51, out finalEpoch) ||
+                        !ReadStatusWordRaw(50, out finalFirstPair)) return false;
+                    if (finalToken != requestedToken || finalEpoch != expectedEpoch ||
+                        finalStatus != status || finalFirstPair != firstPair)
+                    {
+                        reason = "capture invalidated during read";
+                        return false;
+                    }
+                    bytes = captured;
+                    reason = "";
+                    AddMimoLog("SMP capture token=" + requestedToken.ToString(CultureInfo.InvariantCulture) +
+                        " epoch=" + epoch.ToString(CultureInfo.InvariantCulture) +
+                        " first pair=" + firstPair.ToString(CultureInfo.InvariantCulture));
+                    return true;
+                }
+                reason = (status & 6U) != 6U ? "both receivers required" :
+                    "waiting for 16 contiguous pairs (" + count.ToString(CultureInfo.InvariantCulture) + "/16)";
+                Thread.Sleep(2);
+            }
+            return false;
+        }
+
+        private string ReadSmpCaptureDiagnostics(uint expectedEpoch)
+        {
+            try
+            {
+                uint marker;
+                if (!ReadStatusWordRaw(75, out marker) || marker != SMP_V31_DIAGNOSTICS)
+                    return "SMP DIAG | V3.1 FPGA extension not detected (expected S31D at ID75)";
+                uint token, epoch;
+                if (!ReadStatusWordRaw(41, out token) || !ReadStatusWordRaw(51, out epoch))
+                    return "SMP DIAG | snapshot metadata unavailable";
+                if (epoch != expectedEpoch)
+                    return "SMP DIAG | stale run; diagnostic snapshot ignored";
+                uint[] values = new uint[7];
+                for (int i = 0; i < values.Length; i++)
+                    if (!ReadStatusWordRaw((byte)(76 + i), out values[i]))
+                        return "SMP DIAG | incomplete diagnostic response";
+                // R40 froze this diagnostic bundle together with the capture.
+                // Do not issue another R40 while reading the frozen fields.
+                uint finalToken, finalEpoch;
+                if (!ReadStatusWordRaw(41, out finalToken) || !ReadStatusWordRaw(51, out finalEpoch) ||
+                    finalToken != token || finalEpoch != epoch)
+                    return "SMP DIAG | snapshot changed during read; diagnostics ignored";
+                return "SMP DIAG | token=" + token.ToString(CultureInfo.InvariantCulture) +
+                    " epoch=" + epoch.ToString(CultureInfo.InvariantCulture) +
+                    " decoded1=" + values[0].ToString(CultureInfo.InvariantCulture) +
+                    " decoded2=" + values[1].ToString(CultureInfo.InvariantCulture) +
+                    " pairs=" + values[2].ToString(CultureInfo.InvariantCulture) +
+                    " mismatches=" + values[3].ToString(CultureInfo.InvariantCulture) +
+                    " timeouts=" + values[4].ToString(CultureInfo.InvariantCulture) +
+                    " resets=" + values[5].ToString(CultureInfo.InvariantCulture) +
+                    " state=0x" + values[6].ToString("X8", CultureInfo.InvariantCulture);
+            }
+            catch (Exception)
+            {
+                return "SMP DIAG | unavailable; received text and BER are unchanged";
+            }
+        }
+
+        private bool TryReadLegacyRxText(out byte[] bytes, out string reason)
+        {
+            // V2.1 query sequence: ID19 ONCE, then IDs10..17 ONCE when full.
+            // No initial discard/rearm and no repeated read. ID17 at the end
+            // rearms the next block, exactly as the older reader did.
+            bytes = null;
+            reason = "read failed";
+            uint captured;
+            if (!ReadStatusWordRaw(19, out captured)) return false;
+            if (captured > 32)
+            {
+                reason = "invalid capture status";
+                return false;
+            }
+            if (captured < 32)
+            {
+                reason = "receiving " + captured.ToString(CultureInfo.InvariantCulture) + "/32";
+                return false;
+            }
+            if (!TryReadTextBytes(10, out bytes)) return false;
+            reason = "";
+            return true;
+        }
+
+        private bool TryReadFreshRxText(out byte[] bytes, out string reason)
+        {
+            bytes = null;
+            reason = "read failed";
+            uint discarded;
+            if (!ReadStatusWordRaw(17, out discarded)) return false;
+
+            // The legacy TXF1 protocol rearms capture on ID17. Wait longer
+            // than its CDC pulse, then poll at most ten times. It has no
+            // generation ID: a sequence-tagged protocol would be needed to
+            // prove freshness across an independent FPGA reset.
+            Thread.Sleep(2);
+            bool ready = false;
+            for (int attempt = 0; attempt < 10; attempt++)
+            {
+                uint captured;
+                if (!ReadStatusWordRaw(19, out captured)) return false;
+                if (captured > 32)
+                {
+                    reason = "invalid capture status";
+                    return false;
+                }
+                if (captured == 32)
+                {
+                    ready = true;
+                    break;
+                }
+                Thread.Sleep(2);
+            }
+            if (!ready)
+            {
+                reason = "waiting for 32 received bytes";
+                return false;
+            }
+
+            // Read and check the first seven frozen words twice. ID17 is
+            // deliberately last because reading it rearms the capture.
+            uint[] words = new uint[8];
+            for (int i = 0; i < 7; i++)
+                if (!ReadStatusWordRaw((byte)(10 + i), out words[i])) return false;
+            for (int i = 0; i < 7; i++)
+            {
+                uint repeated;
+                if (!ReadStatusWordRaw((byte)(10 + i), out repeated)) return false;
+                if (repeated != words[i])
+                {
+                    reason = "unstable frozen text read";
+                    return false;
+                }
+            }
+            if (!ReadStatusWordRaw(17, out words[7])) return false;
+            bytes = UnpackTextWords(words);
+            reason = "";
+            return true;
+        }
+
+        private bool TryReadTextBytes(byte firstStatusId, out byte[] bytes)
+        {
+            bytes = null;
+            uint[] words = new uint[8];
+            for (int i = 0; i < words.Length; i++)
+                if (!ReadStatusWordRaw((byte)(firstStatusId + i), out words[i])) return false;
+            bytes = UnpackTextWords(words);
+            return true;
+        }
+
+        internal static byte[] UnpackTextWords(uint[] words)
+        {
+            byte[] bytes = new byte[words.Length * 4];
+            for (int i = 0; i < words.Length; i++)
+                for (int j = 0; j < 4; j++)
+                    bytes[i * 4 + j] = (byte)((words[i] >> (j * 8)) & 0xFF);
+            return bytes;
+        }
+
+        // Display-only: a valid snapshot of spaces otherwise looks like no output.
+        // Do not replace returned space bytes with invented letters or claim link loss.
+        internal static string FormatVisibleReceivedText(byte[] bytes, int len)
+        {
+            if (bytes == null)
+                return "[No RX bytes returned]";
+            int count = Math.Max(0, Math.Min(len, Math.Min(32, bytes.Length)));
+            if (count == 0)
+                return "[No RX bytes returned]";
+            bool allSpaces = true;
+            for (int i = 0; i < count; i++)
+                if (bytes[i] != 0x20) { allSpaces = false; break; }
+            if (allSpaces)
+                return "[RX: " + count.ToString(CultureInfo.InvariantCulture) +
+                    " space bytes (0x20)]";
+            return FormatReceivedText(bytes, count);
+        }
+
+        internal static string FormatReceivedText(byte[] bytes, int len)
+        {
+            len = Math.Max(0, Math.Min(len, Math.Min(32, bytes.Length)));
+            char[] chars = new char[len];
+            for (int i = 0; i < len; i++)
+            {
+                byte b = bytes[i];
+                chars[i] = ((b >= 0x20 && b <= 0x7E) || b >= 0xA1) ? (char)b : '?';
+            }
+            return new string(chars);
+        }
+
+        private string ReadAsciiTextMemory(byte firstStatusId, int len)
+        {
+            byte[] bytes;
+            return TryReadTextBytes(firstStatusId, out bytes) ? FormatReceivedText(bytes, len) : "";
+        }
+
+        private void FullSoftReset()
+        {
+            StopRfSession();
+            statusTimer.Stop();
+
+            activeDiversityRun = false;
+            activeSmpRun = false;
+            UpdateTextReadModeUi();
+            lastDisplayedDiversityLink = -1;
+            diversityModeWarningShown = false;
+
+            lblStatus.Text = "Resetting...";
+            lblMimoUsbStatus.Text = "Resetting...";
+            Application.DoEvents();
+
+            AddLog("Full reset started.");
+
+            // 1) Try to stop FPGA TX first.
+            // Use write-only, no echo, so reset does not freeze waiting for ReadPipe.
+            if (isConnected && usb != null && usb.IsOpen)
+            {
+                SendUsbCommandNoEcho(
+                    new byte[] { (byte)'X', 0x00, 0x00, 0x00 },
+                    "RESET STOP"
+                );
+
+                Thread.Sleep(50);
+            }
+
+            // 2) Clear GUI state
+            txRunning = false;
+            SetFpgaDataToZero();
+
+            ClearReceivedText();
+
+            // Preserve both tab inputs on reset; neither is an RX buffer.
+
+            // 3) Reset buttons and panels
+            btnStartTX.Enabled = isConnected;
+            btnStopTX.Enabled = false;
+
+            grpSetting.Enabled = isConnected;
+            grpMimoSettings.Enabled = isConnected;
+            UpdateUserTextEnable();
+
+            // 4) Reset FT601 connection by closing and reopening
+            try
+            {
+                if (usb != null && usb.IsOpen)
+                {
+                    usb.Close();
+                    Thread.Sleep(200);
+                }
+
+                usb = new FTDI();
+
+                uint numDevices = 0;
+                FTDI.FT_STATUS status;
+
+                status = usb.GetNumberOfDevicesConnected(out numDevices);
+
+                if (status != FTDI.FT_STATUS.FT_OK || numDevices == 0)
+                {
+                    isConnected = false;
+
+                    btnConnect.Enabled = true;
+                    btnClose.Enabled = false;
+                    btnMimoConnect.Enabled = true;
+                    btnMimoClose.Enabled = false;
+                    btnStartTX.Enabled = false;
+                    btnStopTX.Enabled = false;
+                    Reset_data.Enabled = false;
+
+                    grpSetting.Enabled = false;
+                    grpUserText.Enabled = false;
+                    MIMOtxtTxMessage.Enabled = false;
+                    grpMimoSettings.Enabled = false;
+
+                    lblStatus.Text = "Reset done, but FT601 not found";
+                    lblMimoUsbStatus.Text = "Reset done, FT601 not found";
+                    AddLog("Reset done, but FT601 not found.");
+                    return;
+                }
+
+                status = usb.OpenByIndex(0);
+
+                if (status != FTDI.FT_STATUS.FT_OK)
+                {
+                    isConnected = false;
+
+                    btnConnect.Enabled = true;
+                    btnClose.Enabled = false;
+                    btnMimoConnect.Enabled = true;
+                    btnMimoClose.Enabled = false;
+                    btnStartTX.Enabled = false;
+                    btnStopTX.Enabled = false;
+                    Reset_data.Enabled = false;
+
+                    grpSetting.Enabled = false;
+                    grpUserText.Enabled = false;
+                    MIMOtxtTxMessage.Enabled = false;
+                    grpMimoSettings.Enabled = false;
+
+                    lblStatus.Text = "Reset done, reopen failed: " + status.ToString();
+                    lblMimoUsbStatus.Text =
+                        "Reopen failed: " + status.ToString();
+                    AddLog("Reset done, reopen failed: " + status.ToString());
+                    return;
+                }
+
+                isConnected = true;
+
+                btnConnect.Enabled = false;
+                btnClose.Enabled = true;
+                btnMimoConnect.Enabled = false;
+                btnMimoClose.Enabled = true;
+                btnStartTX.Enabled = true;
+                btnStopTX.Enabled = false;
+                Reset_data.Enabled = true;
+
+                grpSetting.Enabled = true;
+                grpMimoSettings.Enabled = true;
+                UpdateUserTextEnable();
+
+                lblStatus.Text = "Full reset complete";
+                lblMimoUsbStatus.Text = "FT601 connected";
+                AddLog("Full reset complete. FT601 reopened.");
+            }
+            catch (Exception ex)
+            {
+                isConnected = false;
+                txRunning = false;
+
+                btnConnect.Enabled = true;
+                btnClose.Enabled = false;
+                btnMimoConnect.Enabled = true;
+                btnMimoClose.Enabled = false;
+                btnStartTX.Enabled = false;
+                btnStopTX.Enabled = false;
+                Reset_data.Enabled = false;
+
+                grpSetting.Enabled = false;
+                grpUserText.Enabled = false;
+                MIMOtxtTxMessage.Enabled = false;
+                grpMimoSettings.Enabled = false;
+
+                lblStatus.Text = "Reset exception: " + ex.Message;
+                lblMimoUsbStatus.Text = "Reset exception";
+                AddLog("Reset exception: " + ex.Message);
+            }
+        }
+
+        private void btnExportTable_Click(object sender, EventArgs e)
+        {
+            int dataRowCount = 0;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (!row.IsNewRow)
+                    dataRowCount++;
+            }
+
+            if (dataRowCount == 0)
+            {
+                MessageBox.Show(
+                    "There are no BER records to export.",
+                    "Export BER Table",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                return;
+            }
+
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Title = "Export BER Table";
+                dialog.Filter = "CSV file (*.csv)|*.csv";
+                dialog.DefaultExt = "csv";
+                dialog.AddExtension = true;
+                dialog.FileName =
+                    "FSO_BER_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".csv";
+
+                if (dialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    // UTF-8 with BOM allows Excel to recognise the file correctly.
+                    using (StreamWriter writer = new StreamWriter(
+                        dialog.FileName,
+                        false,
+                        new UTF8Encoding(true)))
+                    {
+                        // Export column headings.
+                        for (int columnIndex = 0;
+                             columnIndex < dataGridView1.Columns.Count;
+                             columnIndex++)
+                        {
+                            if (columnIndex > 0)
+                                writer.Write(",");
+
+                            writer.Write(
+                                EscapeCsvValue(
+                                    dataGridView1.Columns[columnIndex].HeaderText
+                                )
+                            );
+                        }
+
+                        writer.WriteLine();
+
+                        // Export table rows.
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            if (row.IsNewRow)
+                                continue;
+
+                            for (int columnIndex = 0;
+                                 columnIndex < dataGridView1.Columns.Count;
+                                 columnIndex++)
+                            {
+                                if (columnIndex > 0)
+                                    writer.Write(",");
+
+                                object value = row.Cells[columnIndex].Value;
+
+                                writer.Write(EscapeCsvValue(value));
+                            }
+
+                            writer.WriteLine();
+                        }
+                    }
+
+                    MessageBox.Show(
+                        "BER table exported successfully:\n\n" + dialog.FileName,
+                        "Export Complete",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Could not export the BER table:\n\n" + ex.Message,
+                        "Export Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
+        }
+
+        private void btnMimoExportCsv_Click(object sender, EventArgs e)
+        {
+            ExportGridToCsv(
+                dgvMimoBer,
+                "FSO_MIMO_BER_",
+                "Export MIMO BER Table"
+            );
+        }
+
+        private void ExportGridToCsv(
+            DataGridView grid,
+            string filePrefix,
+            string dialogTitle)
+        {
+            int dataRowCount = 0;
+
+            foreach (DataGridViewRow row in grid.Rows)
+            {
+                if (!row.IsNewRow)
+                    dataRowCount++;
+            }
+
+            if (dataRowCount == 0)
+            {
+                MessageBox.Show(
+                    "There are no records to export.",
+                    dialogTitle,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+                return;
+            }
+
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Title = dialogTitle;
+                dialog.Filter = "CSV file (*.csv)|*.csv";
+                dialog.DefaultExt = "csv";
+                dialog.AddExtension = true;
+                dialog.FileName = filePrefix +
+                    DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".csv";
+
+                if (dialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    using (StreamWriter writer = new StreamWriter(
+                        dialog.FileName,
+                        false,
+                        new UTF8Encoding(true)))
+                    {
+                        WriteGridCsv(grid, writer);
+                    }
+
+                    MessageBox.Show(
+                        "Table exported successfully:\n\n" + dialog.FileName,
+                        "Export Complete",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Could not export the table:\n\n" + ex.Message,
+                        "Export Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
+        }
+
+        internal static void WriteGridCsv(DataGridView grid, TextWriter writer)
+        {
+            if (grid == null) throw new ArgumentNullException(nameof(grid));
+            if (writer == null) throw new ArgumentNullException(nameof(writer));
+            for (int columnIndex = 0; columnIndex < grid.Columns.Count; columnIndex++)
+            {
+                if (columnIndex > 0) writer.Write(",");
+                writer.Write(EscapeCsvValue(grid.Columns[columnIndex].HeaderText));
+            }
+            writer.WriteLine();
+            foreach (DataGridViewRow row in grid.Rows)
+            {
+                if (row.IsNewRow) continue;
+                for (int columnIndex = 0; columnIndex < grid.Columns.Count; columnIndex++)
+                {
+                    if (columnIndex > 0) writer.Write(",");
+                    writer.Write(EscapeCsvValue(row.Cells[columnIndex].Value));
+                }
+                writer.WriteLine();
+            }
+        }
+
+        private static string EscapeCsvValue(object value)
+        {
+            string text = value == null ? "" : value.ToString();
+
+            // Escape quotation marks according to the CSV format.
+            text = text.Replace("\"", "\"\"");
+
+            if (text.Contains(",") ||
+                text.Contains("\"") ||
+                text.Contains("\r") ||
+                text.Contains("\n"))
+            {
+                text = "\"" + text + "\"";
+            }
+
+            return text;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnResetCSV_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                this,
+                "Clear all records from the table?\n\n" +
+                "Export first if you want to keep them.\n" +
+                "Previously saved CSV files will not be deleted.",
+                "Reset CSV",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2
+            );
+
+            if (result != DialogResult.Yes)
+                return;
+
+            // Clear records only; keep the existing columns.
+            dataGridView1.Rows.Clear();
+
+            AddLog("BER table cleared.");
+        }
+
+        private void btnMimoResetCsv_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                this,
+                "Clear all MIMO BER records from the table?\n\n" +
+                "Previously exported CSV files will not be deleted.",
+                "Reset MIMO CSV",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2
+            );
+
+            if (result != DialogResult.Yes)
+                return;
+
+            dgvMimoBer.Rows.Clear();
+            AddMimoLog("MIMO BER table cleared.");
+        }
+    }
+}
