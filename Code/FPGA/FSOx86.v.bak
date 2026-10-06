@@ -1,0 +1,36 @@
+module FSO_x86 (
+    input  wire CLOCK_50,
+    input  wire reset_n,
+    output wire LED0
+);
+
+    wire clk_250;
+    wire pll_locked;
+
+    PLL_x86 u_pll_250 (
+        .refclk   (CLOCK_50),
+        .rst      (~reset_n),
+        .outclk_0 (clk_250),
+        .locked   (pll_locked)
+    );
+
+    reg [27:0] blink_cnt = 28'd0;
+    reg        led_250_test = 1'b0;
+
+    always @(posedge clk_250 or negedge reset_n) begin
+        if (!reset_n) begin
+            blink_cnt    <= 28'd0;
+            led_250_test <= 1'b0;
+        end else begin
+            if (blink_cnt == 28'd124_999_999) begin
+                blink_cnt    <= 28'd0;
+                led_250_test <= ~led_250_test;
+            end else begin
+                blink_cnt <= blink_cnt + 1'b1;
+            end
+        end
+    end
+
+    assign LED0 = pll_locked ? led_250_test : 1'b0;
+
+endmodule
